@@ -33,7 +33,7 @@ const updateRequest = user => (store) => {
 const fetchRequest = () => (store) => {
   const { token } = store.getState();
 
-  return superagent.get(`${API_URL}${routes.USER_ROUTE}/me`)
+  return superagent.get(`${API_URL}${routes.USER_ROUTE}`)
     .set('Authorization', `Bearer ${token}`)
     .then((response) => {
       return store.dispatch(setProfile(response.body));
