@@ -13,7 +13,7 @@ const webpackConfig = module.exports = {};
 webpackConfig.entry = `${__dirname}/src/main.js`;
 
 webpackConfig.output = {
-  filename: '[name].[hash].js',
+  filename: '[title].[hash].js',
   path: `${__dirname}/build`,
   publicPath: process.env.CDN_URL,
 };
@@ -29,7 +29,7 @@ webpackConfig.plugins = [
 
   if (production) {
     webpackConfig.plugins.push(new MiniCssPlugin({
-      filename: '[name].[hash].css',
+      filename: '[title].[hash].css',
     }));
   }
 

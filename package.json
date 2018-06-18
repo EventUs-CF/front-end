@@ -1,5 +1,5 @@
 {
-  "name": "eventus-frontend",
+  "title": "eventus-frontend",
   "version": "1.0.0",
   "description": "eventus-frontend",
   "main": "webpack.common.js",

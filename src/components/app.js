@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
@@ -7,6 +7,7 @@ import AuthRedirect from './auth-redirect';
 import AuthLanding from './auth.-landing';
 import Header from './header';
 import Landing from './landing';
+import EventForm from './event-form';
 
 class App extends React.Component {
   componentDidMount() {
@@ -23,11 +24,11 @@ class App extends React.Component {
         <div>
           <Header/>
           <Route path='*' component={AuthRedirect}/>
-          <Route path='/' component={AuthLanding}/>
-          <Route path='/signup' component={AuthLanding}/>
-          <Route path='/login' component={AuthLanding}/>
-          <Route path='/landing' component={Landing}/>
-          <Route path='/eventform' component={eventForm}/>
+          <Route exact path='/' component={AuthLanding}/>
+          <Route exact path='/signup' component={AuthLanding}/>
+          <Route exact path='/login' component={AuthLanding}/>
+          <Route exact path='/landing' component={Landing}/>
+          <Route exact path='/event' component={EventForm}/>
         </div>
         </BrowserRouter>
       </div>
