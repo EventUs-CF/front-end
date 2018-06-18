@@ -250,3 +250,4 @@ fabric.properties
 
 # End of https://www.gitignore.io/api/osx,node,windows,webstorm,visualstudiocode
 node,windows,webstorm,visualstudiocode
+.idea
