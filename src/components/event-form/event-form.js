@@ -52,11 +52,11 @@ const emptyState = {
   whatToExpectError: 'what to expect is required',
 };
 
-export default class ExpenseForm extends React.Component {
+export default class EventForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = props.event || emptyState;
-    autoBind.call(this, ExpenseForm);
+    autoBind.call(this, EventForm);
   }
 
   handleChange(event) {
@@ -103,9 +103,6 @@ export default class ExpenseForm extends React.Component {
   }
 
   render() {
-    // const { expense } = this.props;
-    const buttonText = Event ? 'Update Event' : 'Create Event';
-    // console.log(event, "here's an event object");
     return (
       <form
         className="event-form"
@@ -219,13 +216,13 @@ export default class ExpenseForm extends React.Component {
             value={this.state.whatToExpect}
           />
         </label>
-        <button type="submit"> {buttonText} </button>
+        <button type="submit"> Create Event </button>
       </form>
     );
   }
 }
 
-ExpenseForm.propTypes = {
+EventForm.propTypes = {
   onComplete: PropTypes.func,
   event: PropTypes.object,
 };
