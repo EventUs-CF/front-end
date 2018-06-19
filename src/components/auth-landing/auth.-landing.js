@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import * as authActions from './../actions/auth';
+import * as authActions from '../../actions/auth';
 
-import autoBind from './../utils/auto-bind';
-import AuthForm from './auth-form';
+import autoBind from '../../utils/auto-bind';
+import AuthForm from '../auth-form/auth-form';
 
-import * as routes from './../routes';
+import * as routes from '../../routes';
 
 class AuthLanding extends React.Component {
   constructor(props) {
