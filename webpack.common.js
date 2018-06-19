@@ -25,17 +25,17 @@ webpackConfig.plugins = [
   new DefinePlugin({
     API_URL: JSON.stringify(process.env.API_URL),
   }),
-  ];
+];
 
-  if (production) {
-    webpackConfig.plugins.push(new MiniCssPlugin({
-      filename: '[title].[hash].css',
-    }));
-  }
+if (production) {
+  webpackConfig.plugins.push(new MiniCssPlugin({
+    filename: '[title].[hash].css',
+  }));
+}
 
 webpackConfig.module = {};
 
-  const finalLoader = production ? MiniCssPlugin.loader : 'style-loader';
+const finalLoader = production ? MiniCssPlugin.loader : 'style-loader';
 
 webpackConfig.module.rules = [
   {
@@ -59,7 +59,7 @@ webpackConfig.module.rules = [
   {
     test: /\.scss$/,
     use: [
-      MiniCssPlugin.loader,
+      finalLoader,
       'css-loader',
       'sass-loader',
     ],
