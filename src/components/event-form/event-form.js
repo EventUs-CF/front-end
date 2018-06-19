@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import autoBind from './../../utils/auto-bind';
+import autoBind from '../../utils/auto-bind';
 
 const emptyState = { 
   title: '',
@@ -105,7 +105,7 @@ export default class ExpenseForm extends React.Component {
   render() {
     // const { expense } = this.props;
     const buttonText = Event ? 'Update Event' : 'Create Event';
-    console.log(event, "here's an event object");
+    // console.log(event, "here's an event object");
     return (
       <form
         className="event-form"
@@ -227,6 +227,5 @@ export default class ExpenseForm extends React.Component {
 
 ExpenseForm.propTypes = {
   onComplete: PropTypes.func,
-  category: PropTypes.object,
-  expense: PropTypes.object,
+  event: PropTypes.object,
 };

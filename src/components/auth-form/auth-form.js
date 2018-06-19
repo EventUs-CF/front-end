@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import validator from 'validator';
-import autoBind from './../../utils/auto-bind';
+import autoBind from '../../utils/auto-bind';
 
 const emptyState = {
   username: '',
@@ -95,7 +95,7 @@ class AuthForm extends React.Component {
           value={this.state.email}
           onChange={this.handleChange}
         />
-      </div>
+      </div>;
 
     const signupRenderedJSX = (type !== 'login') ? signupJSX : undefined;
 
