@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import validator from 'validator';
-import autoBind from './../utils/auto-bind';
+import autoBind from './../../utils/auto-bind';
 
 const emptyState = {
   username: '',

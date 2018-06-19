@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import autoBind from './../utils/auto-bind';
+import autoBind from './../../utils/auto-bind';
 
 const emptyState = { 
   title: '',
