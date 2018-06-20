@@ -9,8 +9,8 @@ import autoBind from '../../utils/auto-bind';
 const emptyState = {
   title: '',
   time: '',
-  startAddress: '',
-  hashCash: '',
+  location: '',
+  cost: '',
   description: '',
 };
 
@@ -62,17 +62,17 @@ export default class EventForm extends React.Component {
           />
           <input
             type="text"
-            name="start address"
-            placeholder="event address"
-            value={this.state.address}
+            name="location"
+            placeholder="event location"
+            value={this.state.location}
             onChange={this.handleChange}
           />
           <input
             type="text"
             id="currencyField"
-            name="hashCash"
-            placeholder="hashCash"
-            value={this.state.hashCash}
+            name="cost"
+            placeholder="cost"
+            value={this.state.cost}
             onChange={this.handleChange}
           />
           <textarea
