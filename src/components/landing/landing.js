@@ -21,9 +21,13 @@ Landing.propTypes = {
   createEvent: PropTypes.func,
 };
 
+const mapStateTopProps = state => ({
+  event: state.event,
+});
+
 const mapDispatchToProps = dispatch => ({
   createEvent: event => dispatch(eventActions.createRequest(event)),
 
 });
 
-export default connect(null, mapDispatchToProps)(Landing);
+export default connect(mapStateTopProps, mapDispatchToProps)(Landing);
