@@ -17,7 +17,7 @@ class Landing extends React.Component {
           <EventForm
             onComplete={this.props.createEvent}
           />
-          <EventFeed/> 
+          {/* <EventFeed/>  */}
         </div> :
           <User/>
         }
