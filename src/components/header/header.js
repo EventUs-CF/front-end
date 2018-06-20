@@ -42,6 +42,7 @@ class Header extends React.Component {
           <div className='headerloggedIn'>
             <img src='avatar'/>
             <h3>username</h3>
+            {/* <h3>{this.props.user.username}</h3> */}
             <button onClick={this.props.doLogout}>Logout</button>
           </div> : 
           <AuthForm type='headerLogin' onComplete={this.handleLogin}/>
@@ -64,10 +65,12 @@ Header.propTypes = {
   doLogout: PropTypes.func,
   pDoLogin: PropTypes.func,
   history: PropTypes.object,
+  user: PropTypes.object,
 };
 
 const mapStateToProps = state => ({
   loggedIn: !!state.token,
+  user: state.user,
 });
 
 const mapDispatchToProps = dispatch => ({
