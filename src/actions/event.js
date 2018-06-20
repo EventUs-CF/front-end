@@ -23,10 +23,10 @@ const eventsFetch = events => ({
 
 const createRequest = event => (store) => {
   const { token } = store.getState();
-
+  console.log(token.split('"')[3]);
   return superagent.post(`${API_URL}${routes.EVENT_ROUTE}`)
-    .set('Authorization', `Bearer ${token}`)
     .set('Content-Type', 'application/json')
+    .set('Authorization', `Bearer ${token.split('"')[3]}`)
     .send(event)
     .then((response) => {
       return store.dispatch(eventCreate(response.body));

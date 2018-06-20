@@ -10,28 +10,33 @@ import 'react-datepicker/dist/react-datepicker.css';
 
 export default class EventDate extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       startDate: moment(),
     };
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(date) {
     this.setState({
       startDate: date,
     });
+    this.handleSubmit();
+  }
+
+  handleSubmit() {
+    this.props.getDate(this.state);
   }
 
   render() {
     return <DatePicker
       selected={this.state.startDate}
       onChange={this.handleChange}
-      // onBlur={() => this.props.word(this.state.startDate)}
     />;
   }
 }
 
 EventDate.propTypes = {
-  word: PropTypes.func,
+  getDate: PropTypes.func,
 };
