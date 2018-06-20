@@ -19,7 +19,7 @@ class EventFeed extends React.Component {
   onScroll = () => {
     if ((window.innerHeight + window.scrollY) >= 
     // this.props.eventList.length SHOULD come from UI state
-    (document.body.offsetHeight - 500) && this.props.eventList.length) {
+    (document.body.offsetHeight - 500) && this.state.eventList.length) {
       // New or different method here? 
       // do we want pagination search? 
       // should call the method to render/draw new items from the array 
@@ -37,7 +37,7 @@ class EventFeed extends React.Component {
   render() {
     return ( // expand/contract functionality???
       <div className="eventfeed">
-        {this.props.eventList.map((item) => {
+        {this.state.eventList.map((item) => {
           return <div className="eventfeed-row" key={item._id}>
           <p>{item.title} proof of concept</p>
           <p>expand contract placeholder</p>
