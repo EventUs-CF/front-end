@@ -7,6 +7,10 @@ import * as authActions from '../../actions/auth';
 
 import autoBind from '../../utils/auto-bind';
 import AuthForm from '../auth-form/auth-form';
+import './authLanding.scss';
+import discover from '../../assets/discover-events.png';
+import see from '../../assets/see-events.png';
+import share from '../../assets/share-events.png';
 
 import * as routes from '../../routes';
 
@@ -37,15 +41,37 @@ class AuthLanding extends React.Component {
   render() {
     const rootJSX = <div>
       <h2> WELCOME TO EventUs!!! </h2>
-      <Link to='/signup'> Sign up to our app</Link>
-      <Link to='/login'> Login up to our app</Link>
+      {/* <Link to='/signup'> Sign up to our app</Link>
+      <Link to='/login'> Login up to our app</Link> */}
     </div>;
 
-    const signupJSX = <div>
-      <h2> SIGN UP!!! </h2>
-      <AuthForm onComplete={this.handleSignup}/>
-      <p> Already have an account with us??? </p>
-      <Link to='/login'> Login up to our app</Link>
+    const signupJSX = 
+    <div className='aside'>
+      <div className='signUpAside'>
+        <div className='message'>
+          <h2>Connect with friends and share Hashes</h2>
+          <h2>around the world with EventUs.</h2>
+
+        </div>
+        <div className='motivation'>
+          <img src={see}/>
+          <p><b>See events and updates</b> from the community in Events Feed.</p>
+        </div>
+        <div className='motivation'>
+          <img src={share}/>
+          <p><b>Share events</b> in your Hashing life with the community.</p>
+        </div>
+        <div className='motivation'>
+          <img src={discover}/>
+          <p><b>Discover</b> new and completed Hashes with EventUs.</p>
+        </div>
+      </div>
+      <div className='signupForm'>
+        <h2> CREATE A NEW ACCOUNT </h2>
+        <AuthForm onComplete={this.handleSignup}/>
+        {/* <p> Already have an account with us??? </p> */}
+        {/* <Link to='/login'> Login up to our app</Link> */}
+      </div>
     </div>;
 
     const loginJSX = <div>
@@ -59,8 +85,9 @@ class AuthLanding extends React.Component {
 
     return (
       <div className='landing'>
-        {location.pathname === routes.ROOT_ROUTE ? rootJSX : undefined }
-        {location.pathname === routes.SIGNUP_ROUTE ? signupJSX : undefined }
+        {/* {location.pathname === routes.ROOT_ROUTE ? rootJSX : undefined } */}
+        {/* {location.pathname === routes.SIGNUP_ROUTE ? signupJSX : undefined } */}
+        {location.pathname === routes.ROOT_ROUTE ? signupJSX : undefined }
         {location.pathname === routes.LOGIN_ROUTE ? loginJSX : undefined }
       </div>
     );
