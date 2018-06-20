@@ -67,26 +67,28 @@ class AuthForm extends React.Component {
     event.preventDefault();
     const { usernameError, emailError, passwordError } = this.state;
 
-    if (this.props.type === 'login' || (!usernameError && !passwordError && !emailError)) {
+    if (this.props.type === 'login' || this.props.type === 'headerLogin' || (!usernameError && !passwordError && !emailError)) {
       this.props.onComplete(this.state);
       this.setState(emptyState);
-    } else {
-      this.setState({
-        usernameDirty: true,
-        emailDirty: true,
-        passwordDirty: true,
-      });
-    }
+    } 
+    // else {
+    //   this.setState({
+    //     usernameDirty: true,
+    //     emailDirty: true,
+    //     passwordDirty: true,
+    //   });
+    // }
   }
   // --------LIFECYCLE HOOKS HERE---------------
   render() {
     let { type } = this.props;
 
-    type = type === 'login' ? type : 'signup';
+    type = type === 'login' || 'headerLogin' ? type : 'signup';
 
     const signupJSX =
       <div>
-        { this.state.emailDirty ? <p>{ this.state.emailError }</p> : undefined }
+        {/* { this.state.emailDirty ? <p>{ this.state.emailError }</p> : undefined } */}
+        {type !== 'headerLogin' ? 
         <input
           name='email'
           placeholder='email'
@@ -94,38 +96,71 @@ class AuthForm extends React.Component {
           autoComplete='email'
           value={this.state.email}
           onChange={this.handleChange}
-        />
+        /> : 
+        <input
+          name='email'
+          placeholder=''
+          type='email'
+          autoComplete='email'
+          value={this.state.email}
+          onChange={this.handleChange}
+        />}
       </div>;
 
-    const signupRenderedJSX = (type !== 'login') ? signupJSX : undefined;
+    const signupRenderedJSX = (type !== 'login' && type !== 'headerLogin') ? signupJSX : undefined;
 
     return (
       <form className='auth-form' noValidate onSubmit={this.handleSubmit} >
+        <div className='headerLoginInput'>
+          {/* { this.state.usernameDirty ? <p>{ this.state.usernameError }</p> : undefined } */}
+          {type === 'headerLogin' ? <p>username</p> : undefined}
+          {type !== 'headerLogin' ? 
 
-        { this.state.usernameDirty ? <p>{ this.state.usernameError }</p> : undefined }
-        <input
-          name='username'
-          placeholder='username'
-          type='text'
-          autoComplete='username'
-          value={this.state.username}
-          onChange={this.handleChange}
-        />
+          <input
+            name='username'
+            placeholder='username'
+            type='text'
+            autoComplete='username'
+            value={this.state.username}
+            onChange={this.handleChange}
+          /> : 
+          <input
+            name='username'
+            placeholder=''
+            type='text'
+            autoComplete='username'
+            value={this.state.username}
+            onChange={this.handleChange}
+          />}
+        </div>
 
         {signupRenderedJSX}
+        {/* { this.state.passwordDirty ? <p>{ this.state.passwordError }</p> : undefined } */}
 
-        { this.state.passwordDirty ? <p>{ this.state.passwordError }</p> : undefined }
-        <input
-          className={ this.state.passwordDirty ? 'input-error' : '' }
-          name='password'
-          placeholder='password'
-          type='password'
-          autoComplete='password'
-          value={this.state.password}
-          onChange={this.handleChange}
-        />
+        <div className='headerLoginInput'>
+          {type === 'headerLogin' ? <p>password</p> : undefined}
+          {type !== 'headerLogin' ? 
+          <input
+            className={ this.state.passwordDirty ? 'input-error' : '' }
+            name='password'
+            placeholder='password'
+            type='password'
+            autoComplete='password'
+            value={this.state.password}
+            onChange={this.handleChange}
+          /> : 
+          <input
+            className={ this.state.passwordDirty ? 'input-error' : '' }
+            name='password'
+            placeholder=''
+            type='password'
+            autoComplete='password'
+            value={this.state.password}
+            onChange={this.handleChange}
+          />}
+        </div>
 
-        <button type='submit'> {type} </button>
+        <button type='submit'> {type === 'headerLogin' || type === 'login' ? 'login' : 'Sign Up'} </button>
       </form>
     );
   }

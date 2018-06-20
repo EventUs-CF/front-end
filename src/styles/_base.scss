@@ -4,7 +4,7 @@ body {
   background: $background-color;
   font-family: sans-serif;
   color: $font-color;
-  text-align: center;
+  // text-align: center;
 }
 
 a {
@@ -21,7 +21,7 @@ a:hover {
 
 li {
   list-style-type: none;
-  margin-left: -40px;
+  // margin-left: -40px;
 }
 
 .dashboard {
@@ -29,7 +29,7 @@ li {
 
   input[type=text], select, textarea {
     width: 75%;
-    padding: 10px;
+    // padding: 10px;
     border: 2px solid #cccccc;
     border-radius: 5px;
   }
@@ -41,8 +41,8 @@ li {
 
 .category {
   background-color: rgba(78, 105, 119, 0.5);
-  padding-left: 5px;
-  padding-right: 5px;
+  // padding-left: 5px;
+  // padding-right: 5px;
   border: 2px solid #7f7f7f;
   border-radius: 5px;
   button {
@@ -57,12 +57,12 @@ li {
 }
 
 .expense {
-  padding-left: 5px;
-  padding-right: 5px;
+  // padding-left: 5px;
+  // padding-right: 5px;
   border: 2px solid #7f7f7f;
   border-radius: 5px;
   button {
-    margin: 10px;
+    // margin: 10px;
   }
 }
 
