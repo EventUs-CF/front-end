@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import AuthRedirect from '../auth-redirect/auth-redirect';
-import AuthLanding from '../auth-landing/auth.-landing';
+import AuthLanding from '../auth-landing/auth-landing';
 import Header from '../header/header';
 import Landing from '../landing/landing';
 import EventForm from '../event-form/event-form';

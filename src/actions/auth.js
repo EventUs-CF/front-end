@@ -32,8 +32,6 @@ export const loginRequest = user => (store) => {
     .auth(user.username, user.password)
     .withCredentials()
     .then((response) => {
-      // console.log(response);
-      // console.log(response.text);
       return store.dispatch(setTokenAction(response.text));
     });
 };
