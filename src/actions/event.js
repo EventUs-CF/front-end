@@ -1,7 +1,7 @@
 import superagent from 'superagent';
 import * as routes from '../routes';
 
-const eventCreate = event => ({
+export const eventCreate = event => ({
   type: 'EVENT_CREATE',
   payload: event,
 });
@@ -16,17 +16,17 @@ const eventDelete = event => ({
   payload: event,
 });
 
-const eventsFetch = events => ({
+export const eventsFetch = events => ({
   type: 'EVENTS_FETCH',
   payload: events,
 });
 
 const createRequest = event => (store) => {
-  const { token } = store.getState();
-
+  const { token, user } = store.getState();
+  event.createdBy = user._id;
   return superagent.post(`${API_URL}${routes.EVENT_ROUTE}`)
-    .set('Authorization', `Bearer ${token}`)
     .set('Content-Type', 'application/json')
+    .set('Authorization', `Bearer ${token.split('"')[3]}`)
     .send(event)
     .then((response) => {
       return store.dispatch(eventCreate(response.body));

@@ -19,7 +19,7 @@ export default (state = [], action) => {
 
   switch (type) {
     case 'EVENT_CREATE':
-      validateEvent(payload);
+      // validateEvent(payload);
       return [payload, ...state];
     default: 
       return state;

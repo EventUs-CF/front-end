@@ -10,7 +10,7 @@ const createRequest = user => (store) => {
   const { token } = store.getState();
 
   return superagent.post(`${API_URL}${routes.USER_ROUTE}`)
-    .set('Authorization', `Bearer ${token}`)
+    .set('Authorization', `Bearer ${token.split('"')[3]}`)
     .set('Content-Type', 'application/json')
     .send(user)
     .then((response) => {
