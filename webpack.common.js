@@ -35,8 +35,6 @@ if (production) {
 
 webpackConfig.module = {};
 
-const finalLoader = production ? MiniCssPlugin.loader : 'style-loader';
-
 webpackConfig.module.rules = [
   {
     test: /\.(png|svg|jpg|gif)$/,
@@ -59,7 +57,7 @@ webpackConfig.module.rules = [
   {
     test: /\.s?css$/,
     use: [
-      finalLoader,
+      'style-loader',
       'css-loader',
       'sass-loader',
     ],
