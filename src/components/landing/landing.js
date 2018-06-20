@@ -7,7 +7,7 @@ import EventForm from './../event-form/event-form';
 class Landing extends React.Component {
   render() {
     return (
-      <div className='dashboard'>
+      <div className='landing'>
         <h1> Welcome </h1>
         <h2> Thanks for logging in! </h2>
         <EventForm
@@ -23,6 +23,7 @@ Landing.propTypes = {
 
 const mapDispatchToProps = dispatch => ({
   createEvent: event => dispatch(eventActions.createRequest(event)),
+
 });
 
 export default connect(null, mapDispatchToProps)(Landing);

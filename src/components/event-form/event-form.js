@@ -108,54 +108,93 @@ export default class EventForm extends React.Component {
         className="event-form"
         onSubmit={this.handleSubmit}
       >
-        <input
-          type="text"
-          name="title"
-          placeholder="event title"
-          value={this.state.title}
-          onChange={this.handleChange}
-        />
-        <input
-          type="date"
-          id="date"
-          name="when"
-          value={this.state.date}
-          onChange={this.handleChange}
-        />
-        <input
-          type="time"
-          id="time"
-          name="time"
-          value={this.state.time}
-          onChange={this.handleChange}
-        />
-        <input
-          type="text"
-          name="start address"
-          placeholder="start address"
-          value={this.state.address}
-          onChange={this.handleChange}
-        />
-        <label>
-          Select your Trail:
-          <select
-          name="trail"
-          value={this.state.trail}
-          onChange={this.handleChange}>
-            <option
-              value="A-A">A-A</option>
-            <option
-              value="A-A~">A-A~</option>
-            <option
-              value="A-B">A-B</option>
-          </select>
-        </label>
-        <label>
-          Shiggy level:
-          <select
-            name="shiggy"
-            value={this.state.shiggy}
-            onChange={this.handleChange}>
+        <div>
+          <aside>
+            <label>Event Title:</label>
+          </aside>
+        <div>
+          <input
+            type="text"
+            name="title"
+            placeholder="event title"
+            value={this.state.title}
+            onChange={this.handleChange}
+          />
+        </div>
+        </div>
+        <div>
+            <aside>
+              <label>Event Date:</label>
+            </aside>
+            <div>
+              <input
+                type="grid"
+                />
+              <datepicker
+                type="grid"
+                value={this.state.date}
+                onChange={this.handleChange}
+              />
+            </div>
+        </div>
+        <div>
+            <aside>
+              <label>Event Time:</label>
+            </aside>
+            <div>
+              <input
+                type="time"
+                id="time"
+                name="time"
+                value={this.state.time}
+                onChange={this.handleChange}
+              />
+            </div>
+          </div>
+
+          <div>
+            <aside>
+              <label>Event Address:</label>
+            </aside>
+            <div>
+              <input
+                type="text"
+                name="start address"
+                placeholder="event address"
+                value={this.state.address}
+                onChange={this.handleChange}
+              />
+            </div>
+          </div>
+
+        <div>
+          <aside>
+            <label>Event Trail:</label>
+          </aside>
+          <div>
+            <select
+              name="trail"
+              value={this.state.trail}
+              onChange={this.handleChange}>
+              <option
+                value="A-A">A-A</option>
+              <option
+                value="A-A~">A-A~</option>
+              <option
+                value="A-B">A-B</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <aside>
+            <label>Event Shiggy:</label>
+          </aside>
+          <div>
+            <select
+              name="shiggy"
+              value={this.state.shiggy}
+              onChange={this.handleChange}>
               <option
                 value="0">0</option>
               <option
@@ -168,54 +207,95 @@ export default class EventForm extends React.Component {
                 value="4">4</option>
               <option
                 value="5">5</option>
-          </select>
-        </label>
-        <label>
-          How many miles?
-        <input
-          id="number"
-          type="number"
-          name="distance"
-          value={this.state.distance}
-          onChange={this.handleChange}
-        />
-          miles
-        </label>
-        <input
-          type="hares"
-          name="hares"
-          placeholder="hares"
-          value={this.state.hares}
-          onChange={this.handleChange}
-        />
-        <input
-          type="text"
-          id="currencyField"
-          name="hashCash"
-          value={this.state.hashCash}
-          onChange={this.handleChange}
-        />
-        <label>
-          description
-        <textarea
-        name="description"
-        value={this.state.description}
-        />
-        </label>
-        <label>
-          What to bring
-          <textarea
-            name="what to bring"
-            value={this.state.whatToBring}
-          />
-        </label>
-        <label>
-          What to expect
-          <textarea
-            name="what to expect"
-            value={this.state.whatToExpect}
-          />
-        </label>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <aside>
+            <label>Event Distance:</label>
+          </aside>
+          <div>
+            <input
+              id="number"
+              type="number"
+              name="distance"
+              placeholder="distance"
+              value={this.state.distance}
+              onChange={this.handleChange}
+            />
+          </div>
+        </div>
+
+        <div>
+          <aside>
+            <label>Event Hares:</label>
+          </aside>
+          <div>
+            <input
+              type="number"
+              name="hares"
+              placeholder="hares"
+              value={this.state.hares}
+              onChange={this.handleChange}
+            />
+          </div>
+        </div>
+
+        <div>
+          <aside>
+            <label>Hash Cash:</label>
+          </aside>
+          <div>
+            <input
+              type="text"
+              id="currencyField"
+              name="hashCash"
+              placeholder="hashCash"
+              value={this.state.hashCash}
+              onChange={this.handleChange}
+            />
+          </div>
+        </div>
+
+        <div>
+          <aside>
+            <label>Event Description:</label>
+          </aside>
+          <div>
+            <textarea
+              name="description"
+              placeholder="description"
+              value={this.state.handleChange}
+            />
+          </div>
+        </div>
+
+        <div>
+          <aside>
+            <label>What to bring:</label>
+          </aside>
+          <div>
+            <textarea
+              name="what to bring"
+              placeholder="what to bring"
+              value={this.state.handleChange}
+            />
+          </div>
+        </div>
+
+        <div>
+          <aside>
+            <label>What to expect:</label>
+          </aside>
+          <div>
+            <textarea
+              name="what to expect"
+              placeholder="what to expect"
+              value={this.state.handleChange}
+            />
+          </div>
+        </div>
         <button type="submit"> Create Event </button>
       </form>
     );

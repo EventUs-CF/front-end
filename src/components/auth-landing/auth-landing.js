@@ -72,6 +72,7 @@ AuthLanding.propTypes = {
   pDoSignup: PropTypes.func,
   location: PropTypes.object,
   history: PropTypes.object,
+  cookieToToken: PropTypes.func,
 };
 
 const mapStateToProps = state => ({
@@ -79,6 +80,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
+  cookieToToken: cookie => dispatch(authActions.setCookieAsToken(cookie)),
   pDoSignup: user => dispatch(authActions.signupRequest(user)),
   pDoLogin: user => dispatch(authActions.loginRequest(user)),
 });
