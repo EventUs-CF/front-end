@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import * as eventActions from './../../actions/event';
 import EventForm from './../event-form/event-form';
 import User from '../user/user';
+import EventFeed from './../event-feed/event-feed';
 
 class Landing extends React.Component {
   render() {
@@ -11,9 +12,12 @@ class Landing extends React.Component {
       <div className='landing'>
         <h1> Welcome </h1>
         <h2> Thanks for logging in! </h2>
-        { this.props.user ? 
+        { this.props.user ?
+        <div> 
           <EventForm
-          onComplete={this.props.createEvent}/> :
+            onComplete={this.props.createEvent}/>
+          <EventFeed/> 
+        </div> :
           <User/>
         }
       </div>
