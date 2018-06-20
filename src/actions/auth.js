@@ -39,6 +39,12 @@ export const loginRequest = user => (store) => {
       return store.dispatch(setTokenAction(response.text));
     })
     .then(() => {
+      return superagent.get(`${API_URL}${routes.EVENT_ROUTE}`);
+    })
+    .then((response) => {
+      return store.dispatch(eventCreate(response.body));
+    })
+    .then(() => {
       return superagent.get(`${API_URL}${routes.USER_ROUTE}`)
         .set('Content-Type', 'application/json')
         .set('Authorization', `Bearer ${result.token.split('"')[3]}`);
@@ -46,11 +52,5 @@ export const loginRequest = user => (store) => {
     .then((userProfile) => {
       result.user = userProfile.body;
       return store.dispatch(setProfile(userProfile.body));
-    })
-    .then(() => {
-      return superagent.get(`${API_URL}${routes.EVENT_ROUTE}`);
-    })
-    .then((response) => {
-      return store.dispatch(eventCreate(response.body));
     });
 };
