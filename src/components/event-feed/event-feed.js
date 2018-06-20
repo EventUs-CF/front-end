@@ -9,7 +9,8 @@ class EventFeed extends React.Component {
   }
   componentDidMount() {
     window.addEventListener('scroll', this.onScroll, false);
-    this.setState({ eventList: this.props.event[0] });
+    console.log(this.props.event);
+    // this.setState({ eventList: this.props.event[0] });
   }
 
   componentWillUnmount() {
@@ -37,7 +38,7 @@ class EventFeed extends React.Component {
   render() {
     return ( // expand/contract functionality???
       <div className="eventfeed">
-        {this.state.eventList.map((item) => {
+        {this.props.event[0].map((item) => {
           return <div className="eventfeed-row" key={item._id}>
           <p>{item.title} proof of concept</p>
           <p>expand contract placeholder</p>
