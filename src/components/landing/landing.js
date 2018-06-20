@@ -15,8 +15,9 @@ class Landing extends React.Component {
         { this.props.user ?
         <div> 
           <EventForm
-            onComplete={this.props.createEvent}/>
-          <EventFeed/> 
+            onComplete={this.props.createEvent}
+          />
+          {/* <EventFeed/>  */}
         </div> :
           <User/>
         }
