@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import * as eventActions from './../../actions/event';
 import EventForm from './../event-form/event-form';
+import EventFeed from './../event-feed/event-feed';
 
 class Landing extends React.Component {
   render() {
@@ -12,6 +13,7 @@ class Landing extends React.Component {
         <h2> Thanks for logging in! </h2>
         <EventForm
         onComplete={this.props.createEvent}/>
+        <EventFeed/>
       </div>
     );
   }
