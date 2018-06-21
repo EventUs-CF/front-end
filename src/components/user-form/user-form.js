@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import autoBind from '../../utils/auto-bind';
+import './user-form.scss';
 
 const emptyState = {
   firstName: '',
@@ -61,16 +62,11 @@ class UserForm extends React.Component {
 
   render() {
     return (
+      <article>
+
       <form className='user-form' onSubmit={this.handleSubmit}>
-
         <img src={this.state.preview} />
-        <label>Avatar</label>
-        <input
-          type='file'
-          name='avatar'
-          onChange={this.handleChange}
-        />
-
+        <div>
         <label>First Name</label>
         <input
           type='text'
@@ -78,7 +74,8 @@ class UserForm extends React.Component {
           value={this.state.firstName}
           onChange={this.handleChange}
         />
-
+        </div>
+        <div>
         <label>Last Name</label>
         <input
           type='text'
@@ -86,7 +83,7 @@ class UserForm extends React.Component {
           value={this.state.lastName}
           onChange={this.handleChange}
         />
-
+        </div>
         <label>Bio</label>
         <textarea
           type='text'
@@ -94,9 +91,20 @@ class UserForm extends React.Component {
           value={this.state.bio}
           onChange={this.handleChange}
         />
-
+        <div>
+        <label>Avatar</label>
+        <input
+          type='file'
+          name='avatar'
+          onChange={this.handleChange}
+        />
+        </div>
+        <div>
+          <label> </label>
         <button type='submit'>Update Profile</button>
+        </div>
       </form>
+      </article>
     );
   }
 }
