@@ -17,7 +17,6 @@ class AuthRedirect extends React.Component {
       if (token) {
         destinationRoute = routes.LANDING_ROUTE;
       }
-      // if a user is logged in we direct them to the dashboard else...
     } else if (!token) {
       destinationRoute = routes.ROOT_ROUTE;
     }

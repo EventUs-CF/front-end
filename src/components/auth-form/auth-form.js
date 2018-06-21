@@ -70,14 +70,7 @@ class AuthForm extends React.Component {
     if (this.props.type === 'login' || this.props.type === 'headerLogin' || (!usernameError && !passwordError && !emailError)) {
       this.props.onComplete(this.state);
       this.setState(emptyState);
-    } 
-    // else {
-    //   this.setState({
-    //     usernameDirty: true,
-    //     emailDirty: true,
-    //     passwordDirty: true,
-    //   });
-    // }
+    }
   }
   // --------LIFECYCLE HOOKS HERE---------------
   render() {
@@ -87,7 +80,6 @@ class AuthForm extends React.Component {
 
     const signupJSX =
       <div>
-        {/* { this.state.emailDirty ? <p>{ this.state.emailError }</p> : undefined } */}
         {type !== 'headerLogin' ? 
         <input
           name='email'
@@ -112,7 +104,6 @@ class AuthForm extends React.Component {
     return (
       <form className='auth-form' noValidate onSubmit={this.handleSubmit} >
         <div className='headerLoginInput'>
-          {/* { this.state.usernameDirty ? <p>{ this.state.usernameError }</p> : undefined } */}
           {type === 'headerLogin' ? <p>username</p> : undefined}
           {type !== 'headerLogin' ? 
 
@@ -135,7 +126,6 @@ class AuthForm extends React.Component {
         </div>
 
         {signupRenderedJSX}
-        {/* { this.state.passwordDirty ? <p>{ this.state.passwordError }</p> : undefined } */}
 
         <div className='headerLoginInput'>
           {type === 'headerLogin' ? <p>password</p> : undefined}
