@@ -21,7 +21,7 @@ export const logout = () => {
 };
 
 export const signupRequest = user => (store) => {
-  return superagent.post(`${API_URL}${routes.SIGNUP_ROUTE}`)
+  return superagent.post(`${process.env.API_URL}${routes.SIGNUP_ROUTE}`)
     .send(user)
     .withCredentials()
     .then((response) => {

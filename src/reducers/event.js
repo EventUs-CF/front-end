@@ -20,8 +20,15 @@ export default (state = [], action) => {
   switch (type) {
     case 'EVENT_CREATE':
       // validateEvent(payload);
-      return [payload, ...state];
-    default: 
+      if (payload.length > 1) {
+        payload.forEach((event) => {
+          state = [...state, event]; // eslint-disable-line
+          return state;
+        });
+      } else {
+        return [...state, payload];
+      }
+    default: // eslint-disable-line
       return state;
   }
 };
