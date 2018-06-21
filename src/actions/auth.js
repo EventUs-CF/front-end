@@ -5,6 +5,7 @@ import { eventCreate } from './event';
 import { deleteCookie } from '../utils/cookie';
 
 const TOKEN_COOKIE_KEY = 'PPA-Token';
+// const API_URL = process.env.API_URL;
 
 export const setTokenAction = token => ({
   type: 'TOKEN_SET',

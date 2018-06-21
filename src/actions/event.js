@@ -1,6 +1,8 @@
 import superagent from 'superagent';
 import * as routes from '../routes';
 
+// const API_URL = process.env.API_URL;
+
 export const eventCreate = event => ({
   type: 'EVENT_CREATE',
   payload: event,
