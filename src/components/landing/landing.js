@@ -17,7 +17,7 @@ class Landing extends React.Component {
           <EventForm
             onComplete={this.props.createEvent}
           />
-          <EventFeed/> 
+          <EventFeed events={this.props.event}/> 
         </div> :
           <User/>
         }
@@ -29,6 +29,7 @@ class Landing extends React.Component {
 Landing.propTypes = {
   createEvent: PropTypes.func,
   user: PropTypes.object,
+  event: PropTypes.array,
 };
 
 const mapStateTopProps = state => ({
@@ -38,7 +39,6 @@ const mapStateTopProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   createEvent: event => dispatch(eventActions.createRequest(event)),
-
 });
 
 export default connect(mapStateTopProps, mapDispatchToProps)(Landing);

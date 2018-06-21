@@ -1,16 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+// import { connect } from 'react-redux';
 
-class EventFeed extends React.Component {
+export default class EventFeed extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      events: this.props.events,
+    };
   }
   componentDidMount() {
     window.addEventListener('scroll', this.onScroll, false);
-    console.log(this.props.event);
-    // this.setState({ eventList: this.props.event[0] });
+    // console.log(this.props.event);
+    // this.setState({ eventList: this.props.events });
   }
 
   componentWillUnmount() {
@@ -19,7 +21,7 @@ class EventFeed extends React.Component {
 
   onScroll = () => {
     if ((window.innerHeight + window.scrollY) >= 
-    (document.body.offsetHeight - 500) && this.state.eventList.length) {
+    (document.body.offsetHeight - 500) && this.props.events.length) {
       console.log('fired');
       // New or different method here? 
       // do we want pagination search? 
@@ -38,13 +40,27 @@ class EventFeed extends React.Component {
   render() {
     return ( // expand/contract functionality???
       <div className="eventfeed">
-        {
-          this.props.event[0].map((item) => {
-            return <div className="eventfeed-row" key={item._id}>
-            <p>{item.title} proof of concept</p>
-            {/* <p>expand contract placeholder</p> */}
-            </div>;
-          })
+        { !this.state.events ? 
+          <div>
+            {
+              this.props.events.map((item) => {
+                return <div className="eventfeed-row" key={item._id}>
+                <p>{item.title} proof of concept</p>
+                {/* <p>expand contract placeholder</p> */}
+                </div>;
+              })
+            }
+          </div> : 
+          <div>
+            {
+              this.state.events.map((item) => {
+                return <div className="eventfeed-row" key={item._id}>
+                <p>{item.title} proof of concept</p>
+                {/* <p>expand contract placeholder</p> */}
+                </div>;
+              })
+            }
+          </div>
         }
       </div>
     );
@@ -54,11 +70,11 @@ class EventFeed extends React.Component {
 EventFeed.propTypes = {
   eventList: PropTypes.array,
   onPaginatedSearch: PropTypes.func,
-  event: PropTypes.array,
+  events: PropTypes.array,
 };
 
-const mapStateTopProps = state => ({
-  event: state.event,
-});
+// const mapStateTopProps = state => ({
+//   event: state.event,
+// });
 
-export default connect(mapStateTopProps, null)(EventFeed);
+// export default connect(mapStateTopProps, null)(EventFeed);
