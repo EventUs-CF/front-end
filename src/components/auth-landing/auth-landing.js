@@ -24,7 +24,7 @@ class AuthLanding extends React.Component {
   handleLogin(user) {
     return this.props.pDoLogin(user)
       .then(() => {
-        this.props.history.push(routes.DASHBOARD_ROUTE);
+        this.props.history.push(routes.LANDING_ROUTE);
       })
       .catch(console.error);
   }
@@ -32,7 +32,7 @@ class AuthLanding extends React.Component {
   handleSignup(user) {
     return this.props.pDoSignup(user)
       .then(() => {
-        this.props.history.push(routes.DASHBOARD_ROUTE);
+        this.props.history.push(routes.LANDING_ROUTE);
       })
       .catch(console.error);
   }

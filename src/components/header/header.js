@@ -7,6 +7,7 @@ import * as authActions from '../../actions/auth';
 import * as routes from '../../routes';
 import AuthForm from '../auth-form/auth-form';
 import './header.scss';
+import eventUs from '../../assets/eventUs.jpg';
 
 class Header extends React.Component {
   constructor(props) {
@@ -16,7 +17,7 @@ class Header extends React.Component {
   handleLogin(user) {
     return this.props.pDoLogin(user)
       .then(() => {
-        this.props.history.push(routes.DASHBOARD_ROUTE);
+        this.props.history.push(routes.LANDING_ROUTE);
       })
       .catch(console.error);
   }
@@ -24,10 +25,10 @@ class Header extends React.Component {
   render() {
     return (
       <header className='header'>
-        <h1> EventUs </h1>
+        <img src={eventUs} />
         {
           this.props.loggedIn ? 
-          <div className='headerloggedIn'>
+          <div className='headerLoggedIn'>
             <img src='avatar'/>
             <h3>{
                 this.props.user ?

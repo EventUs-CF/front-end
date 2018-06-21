@@ -1,6 +1,6 @@
 import { fetchCookie } from '../utils/cookie';
 
-const TOKEN_COOKIE_KEY = 'PPA-Token';
+const TOKEN_COOKIE_KEY = 'EventUs-Token';
 const token = fetchCookie(TOKEN_COOKIE_KEY);
 const initialState = token || null; 
 

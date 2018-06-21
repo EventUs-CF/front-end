@@ -4,8 +4,7 @@ import { setProfile } from './user';
 import { eventCreate } from './event';
 import { deleteCookie } from '../utils/cookie';
 
-const TOKEN_COOKIE_KEY = 'PPA-Token';
-// const API_URL = process.env.API_URL;
+const TOKEN_COOKIE_KEY = 'EventUs-Token';
 
 export const setTokenAction = token => ({
   type: 'TOKEN_SET',

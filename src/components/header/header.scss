@@ -1,5 +1,5 @@
 .header {
-  height: 100px;
+  height: 101px;
 
   background-color: lightgrey;
   position: relative;
@@ -18,7 +18,7 @@
   .headerLoginInput {
     display: inline-block;
   }
-  .headerloggedIn {
+  .headerLoggedIn {
     float: right;
     margin-right: 5%;
     margin-top: 2%;
@@ -45,5 +45,7 @@
   input {
     border-radius: 15px;
   }
-  
+  img {
+    margin-top: 3px;
+  }
 }
