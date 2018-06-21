@@ -19,7 +19,6 @@ module.exports = merge(commonConfiguration, {
         test: /\.s?css$/,
         use: [
           MiniCSSExtractPlugin.loader,
-          'style-loader',
           'css-loader',
           'sass-loader',
         ],

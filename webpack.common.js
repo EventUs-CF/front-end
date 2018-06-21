@@ -20,7 +20,7 @@ webpackConfig.output = {
 
 webpackConfig.plugins = [
   new HtmlWebpackPlugin({
-    title: 'EventUs Client',
+    title: 'EventUs',
   }),
   new DefinePlugin({
     API_URL: JSON.stringify(process.env.API_URL),
@@ -34,6 +34,8 @@ if (production) {
 }
 
 webpackConfig.module = {};
+
+const finalLoader = production ? MiniCssPlugin.loader : 'style-loader';
 
 webpackConfig.module.rules = [
   {
@@ -57,7 +59,7 @@ webpackConfig.module.rules = [
   {
     test: /\.s?css$/,
     use: [
-      'style-loader',
+      finalLoader,
       'css-loader',
       'sass-loader',
     ],
