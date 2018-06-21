@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import { connect } from 'react-redux';
+import EventPost from '../event/event';
 
 export default class EventFeed extends React.Component {
   constructor(props) {
@@ -11,8 +11,6 @@ export default class EventFeed extends React.Component {
   }
   componentDidMount() {
     window.addEventListener('scroll', this.onScroll, false);
-    // console.log(this.props.event);
-    // this.setState({ eventList: this.props.events });
   }
 
   componentWillUnmount() {
@@ -38,30 +36,28 @@ export default class EventFeed extends React.Component {
   }
 
   render() {
-    return ( // expand/contract functionality???
-      <div className="eventfeed">
-        { !this.state.events ? 
-          <div>
-            {
-              this.props.events.map((item) => {
-                return <div className="eventfeed-row" key={item._id}>
-                <p>{item.title} proof of concept</p>
-                {/* <p>expand contract placeholder</p> */}
-                </div>;
-              })
-            }
-          </div> : 
-          <div>
-            {
-              this.state.events.map((item) => {
-                return <div className="eventfeed-row" key={item._id}>
-                <p>{item.title} proof of concept</p>
-                {/* <p>expand contract placeholder</p> */}
-                </div>;
-              })
-            }
-          </div>
-        }
+    return ( 
+      <div className='eventfeed'>
+      { !this.state.events ? 
+        <div>
+          {
+            this.props.events.map((item) => {
+              return <div className="eventfeed-row" key={item._id}>
+                <EventPost event={item}/>
+              </div>;
+            })
+          }
+        </div> : 
+        <div>
+          {
+            this.state.events.map((item) => {
+              return <div className="eventfeed-row" key={item._id}>
+                <EventPost event={item}/>
+              </div>;
+            })
+          }
+        </div>
+      }
       </div>
     );
   }

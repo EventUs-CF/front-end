@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import autoBind from '../../utils/auto-bind';
 
@@ -23,17 +22,6 @@ class Header extends React.Component {
   }
 
   render() {
-    const JSXNotLoggedIn =
-      <ul>
-        <li><Link to={routes.ROOT_ROUTE}> Home </Link></li>
-        <li><Link to={routes.LOGIN_ROUTE}> Login </Link></li>
-        <li><Link to={routes.SIGNUP_ROUTE}> Sign up! </Link></li>
-      </ul>;
-    const JSXLoggedIn =
-      <ul>
-        <li><Link to={routes.LANDING_ROUTE}> Landing </Link></li>
-      </ul>;
-
     return (
       <header className='header'>
         <h1> EventUs </h1>
@@ -41,20 +29,14 @@ class Header extends React.Component {
           this.props.loggedIn ? 
           <div className='headerloggedIn'>
             <img src='avatar'/>
-            <h3>username</h3>
-            {/* <h3>{this.props.user.username}</h3> */}
+            <h3>{
+                this.props.user ?
+              this.props.user.username : undefined
+              }</h3>
             <button onClick={this.props.doLogout}>Logout</button>
           </div> : 
           <AuthForm type='headerLogin' onComplete={this.handleLogin}/>
         }
-        {/* <nav className='links'>
-          { this.props.loggedIn ? JSXLoggedIn : JSXNotLoggedIn }
-        </nav> */}
-        {/* {
-          this.props.loggedIn ?
-            <button onClick={this.props.doLogout}>Logout</button>
-            : undefined
-        } */}
       </header>
     );
   }
