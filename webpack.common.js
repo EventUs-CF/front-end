@@ -4,6 +4,7 @@
 require('dotenv').config();
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { DefinePlugin } = require('webpack');
 const MiniCssPlugin = require('mini-css-extract-plugin');
 
 const webpackConfig = module.exports = {};
@@ -19,6 +20,9 @@ webpackConfig.output = {
 webpackConfig.plugins = [
   new HtmlWebpackPlugin({
     title: '401d23 Budget Tracker',
+  }),
+  new DefinePlugin({
+    API_URL: JSON.stringify(process.env.API_URL),
   }),
   new MiniCssPlugin({
     filename: '[name].[hash].css',
