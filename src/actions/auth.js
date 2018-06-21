@@ -5,6 +5,7 @@ import { eventCreate } from './event';
 import { deleteCookie } from '../utils/cookie';
 
 const TOKEN_COOKIE_KEY = 'PPA-Token';
+const apiUrl = process.env.API_URL;
 
 export const setTokenAction = token => ({
   type: 'TOKEN_SET',
@@ -21,7 +22,7 @@ export const logout = () => {
 };
 
 export const signupRequest = user => (store) => {
-  return superagent.post(`${process.env.API_URL}${routes.SIGNUP_ROUTE}`)
+  return superagent.post(`${apiUrl}${routes.SIGNUP_ROUTE}`)
     .send(user)
     .withCredentials()
     .then((response) => {
@@ -31,7 +32,7 @@ export const signupRequest = user => (store) => {
 
 export const loginRequest = user => (store) => {
   const result = {};
-  return superagent.get(`${API_URL}${routes.LOGIN_ROUTE}`)
+  return superagent.get(`${apiUrl}${routes.LOGIN_ROUTE}`)
     .auth(user.username, user.password)
     .withCredentials()
     .then((response) => {
@@ -39,13 +40,13 @@ export const loginRequest = user => (store) => {
       return store.dispatch(setTokenAction(response.text));
     })
     .then(() => {
-      return superagent.get(`${API_URL}${routes.EVENT_ROUTE}`);
+      return superagent.get(`${apiUrl}${routes.EVENT_ROUTE}`);
     })
     .then((response) => {
       return store.dispatch(eventCreate(response.body));
     })
     .then(() => {
-      return superagent.get(`${API_URL}${routes.USER_ROUTE}`)
+      return superagent.get(`${apiUrl}${routes.USER_ROUTE}`)
         .set('Content-Type', 'application/json')
         .set('Authorization', `Bearer ${result.token.split('"')[3]}`);
     })
