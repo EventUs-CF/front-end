@@ -37,6 +37,7 @@ export default class EventForm extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     this.props.onComplete(this.state);
+    this.props.hide();
     this.setState(emptyState);
   }
 
@@ -60,6 +61,7 @@ export default class EventForm extends React.Component {
         <form
           className="event-form"
           onSubmit={this.handleSubmit}
+
         >
           <h2>Create New Event</h2>
           <div className='title'>
@@ -117,7 +119,7 @@ export default class EventForm extends React.Component {
               onChange={this.handleChange}
             />
           </div>
-          <button type="submit"> Create Event </button>
+          <button type="submit" > Create Event </button>
         </form>
       </div>
     );

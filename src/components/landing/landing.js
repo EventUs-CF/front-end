@@ -35,6 +35,7 @@ class Landing extends React.Component {
           <Modal className='modal' show={this.state.create} hide={hideModal} type='eventForm'>
             <EventForm
               onComplete={this.props.createEvent}
+              hide={hideModal}
               />
           </Modal>
           </div>
