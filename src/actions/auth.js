@@ -15,9 +15,12 @@ export const removeTokenAction = () => ({
   type: 'TOKEN_REMOVE',
 });
 
+export const removeEventsAction = () => ({
+  type: 'EVENT_REMOVE',
+});
+
 export const logout = () => {
-  deleteCookie(TOKEN_COOKIE_KEY);
-  return removeTokenAction();
+  return deleteCookie(TOKEN_COOKIE_KEY) && removeEventsAction() && removeTokenAction();
 };
 
 export const signupRequest = user => (store) => {
@@ -37,12 +40,6 @@ export const loginRequest = user => (store) => {
     .then((response) => {
       result.token = response.text;
       return store.dispatch(setTokenAction(response.text));
-    })
-    .then(() => {
-      return superagent.get(`${API_URL}/${routes.EVENT_ROUTE}`);
-    })
-    .then((response) => {
-      return store.dispatch(eventCreate(response.body));
     })
     .then(() => {
       return superagent.get(`${API_URL}/${routes.USER_ROUTE}`)

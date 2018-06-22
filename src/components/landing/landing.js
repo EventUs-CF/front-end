@@ -7,6 +7,9 @@ import User from '../user/user';
 import EventFeed from './../event-feed/event-feed';
 
 class Landing extends React.Component {
+  componentDidMount() {
+    this.props.loadEvents();
+  }
   render() {
     return (
       <div className='landing'>
@@ -30,6 +33,8 @@ Landing.propTypes = {
   createEvent: PropTypes.func,
   user: PropTypes.object,
   event: PropTypes.array,
+  loadEvents: PropTypes.func,
+  loadEventsToState: PropTypes.func,
 };
 
 const mapStateTopProps = state => ({
@@ -38,7 +43,9 @@ const mapStateTopProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
+  loadEventsToState: events => dispatch(eventActions.eventCreate(events)),
   createEvent: event => dispatch(eventActions.createRequest(event)),
+  loadEvents: () => dispatch(eventActions.fetchRequest()),
 });
 
 export default connect(mapStateTopProps, mapDispatchToProps)(Landing);
