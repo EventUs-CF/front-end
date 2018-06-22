@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import autoBind from '../../utils/auto-bind';
+import Avatar from './avatar';
 import './user-form.scss';
 
 const emptyState = {
@@ -8,22 +9,6 @@ const emptyState = {
   lastName: '',
   bio: '',
   avatar: '',
-  preview: undefined,
-};
-
-const fileToBase64String = (file) => {
-  return new Promise((resolve, reject) => {
-    if (!file) {
-      return reject(new Error('Avatar Required'));
-    }
-
-    const fileReader = new FileReader();
-
-    fileReader.addEventListener('load', () => resolve(fileReader.result));
-    fileReader.addEventListener('error', reject);
-
-    return fileReader.readAsDataURL(file);
-  });
 };
 
 class UserForm extends React.Component {
@@ -34,24 +19,10 @@ class UserForm extends React.Component {
   }
 
   handleChange(e) {
-    const { 
-      type, name, value, files, 
-    } = e.target;
-    
-    if (type === 'file') {
-      fileToBase64String(files[0])
-        .then(preview => this.setState({ preview }));
-      
-      this.setState({
-        picture: files[0],
-      }, () => {
-        console.log('applied after state change');
-      });
-    } else {
-      this.setState({
-        [name]: value,
-      });
-    }
+    const { name, value } = e.target;
+    this.setState({
+      [name]: value,
+    });
   }
 
   handleSubmit(e) {
@@ -60,12 +31,30 @@ class UserForm extends React.Component {
     this.setState(this.emptyState);
   }
 
+  handleAvatarToggle(e) {
+    e.preventDefault();
+    if (this.state.showAvatars) {
+      this.setState({
+        showAvatars: false,
+      });
+    } else {
+      this.setState({
+        showAvatars: true,
+      });
+    }
+  }
+
+  handleAvatarChange(src) {
+    console.log('passed image src', src);
+    this.setState({
+      avatar: src,
+    });
+  }
+
   render() {
     return (
       <article>
-
       <form className='user-form' onSubmit={this.handleSubmit}>
-        <img src={this.state.preview} />
         <div>
         <label>First Name</label>
         <input
@@ -93,17 +82,15 @@ class UserForm extends React.Component {
         />
         <div>
         <label>Avatar</label>
-        <input
-          type='file'
-          name='avatar'
-          onChange={this.handleChange}
-        />
+        <img src={this.state.avatar}/>
+        <button onClick={this.handleAvatarToggle}>Select</button>
         </div>
         <div>
-          <label> </label>
+        <label></label>
         <button type='submit'>Update Profile</button>
         </div>
       </form>
+      {this.state.showAvatars ? <Avatar onAvatar={this.handleAvatarChange}/> : null}
       </article>
     );
   }

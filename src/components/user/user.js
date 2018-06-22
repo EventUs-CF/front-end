@@ -51,7 +51,7 @@ class User extends React.Component {
         <p>{user.firstName}</p>
         <p>{user.lastName}</p>
         <p>{user.bio}</p>
-        <p>{user.avatar}</p>
+        <img src={user.avatar} />
         <button onClick={() => this.setState({ editing: true })}> Edit </button>
       </div>;
       JSXUser = 
