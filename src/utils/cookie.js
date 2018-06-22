@@ -2,9 +2,10 @@ const deleteCookie = (key) => {
   document.cookie = `${key}=; expires= Thu, 01 Jan 1970 00:00:00 GMT`;
 };
 
+const newLocal = null;
 const fetchCookie = (key) => {
   const cookies = document.cookie.split(';');
-
+  console.log(document.cookie);
   for (const cookie of cookies) { // eslint-disable-line
     const [cookieKey, cookieValue] = cookie.split('=');
 
@@ -12,7 +13,7 @@ const fetchCookie = (key) => {
       return cookieValue;
     }
   }
-  return null;
+  return localStorage.getItem('EventUsCookie');
 };
 
 export { deleteCookie, fetchCookie };
