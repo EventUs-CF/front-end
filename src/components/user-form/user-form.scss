@@ -1,7 +1,7 @@
 article {
-  width: 75%;
-  position:relative;
-  
+  width: 100%;
+  position:absolute;
+  margin-left:-6%;
 }
 .cancelButton {
   float:right;
@@ -63,7 +63,7 @@ article {
     // display: table-cell;
     width: 90%;
     // margin: .3em;
-    margin-top:5%;
+    margin-top:25%;
     margin-bottom:1%;
     height: 150px;
     border-radius: 5px;
@@ -71,19 +71,20 @@ article {
   }
 
   // button {
-  //   display: table-cell;
-  //   float: end;
+  //   // display: table-cell;
+  //   // float: end;
   //   padding: .1em;
   //   margin: .1em;
   // }
   .updateButton {
-    margin-left:5%;
+    margin-left:10%;
     float:left;
     text-align:center;
     width:80%;
     height: 30px;
     padding-bottom: 1%;
     padding-top:0.5%;
+    margin-bottom: 150px;
   }
   .bio {
     padding-top: 0px;

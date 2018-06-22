@@ -16,7 +16,7 @@
     position: absolute;
     z-index: -99;
   }
-  img {
+  .profileImage {
     display: block;
     position:absolute;
     height: 150px;
@@ -58,6 +58,7 @@
     height:35%;
     left: 7%;
     text-align: left;
+    background-color:white;
   }
   .editLink {
     position: absolute;

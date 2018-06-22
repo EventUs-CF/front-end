@@ -6,9 +6,9 @@ export default class Modal extends React.Component {
   render() {
     const showHideClassName = this.props.show ? 'modal display-block' : 'modal display-none';
     return (
-      <div>{
+      <div className={this.props.type}>{
         (this.props.type === 'avatar') ? 
-        <div>
+        <div >
           <div className={showHideClassName}>
             <main className='modal-main'>
               <div onClick={this.props.hide}>
