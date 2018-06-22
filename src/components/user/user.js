@@ -5,6 +5,7 @@ import autoBind from '../../utils/auto-bind';
 import * as userActions from '../../actions/user';
 import * as routes from '../../routes';
 import UserForm from '../user-form/user-form';
+import './user.scss';
 
 class User extends React.Component {
   constructor(props) {
@@ -30,6 +31,10 @@ class User extends React.Component {
     this.setState({ editing: false });
   }
 
+  onClick() {
+    this.setState({ editing: false });
+  }
+
   // ----------------
   // LifeCycle Hooks
   // ----------------
@@ -42,29 +47,30 @@ class User extends React.Component {
 
     if (user) {
       JSXEditing = 
-      <div>
-        <UserForm user={user} onComplete={this.handleUpdate}/>
-        <button onClick={() => this.setState({ editing: false })}> Cancel </button>
-      </div>;
+        <div className='userForm'>
+          <UserForm user={user} onComplete={this.handleUpdate} onClick={this.onClick}/>
+        </div>;
+      
       JSXDisplay = 
-      <div>
-        <p>{user.firstName}</p>
-        <p>{user.lastName}</p>
-        <p>{user.bio}</p>
+      <div className='userInfo'>
+        <div className='banner'></div>
+        <h3 className='profileUserName'>{user.username}</h3>
+        <a className='editLink' onClick={() => this.setState({ editing: true })}> Edit Profile </a>
         <img src={user.avatar} />
-        <button onClick={() => this.setState({ editing: true })}> Edit </button>
+        <div className='profileFirstName'>{user.firstName}</div>
+        <div className='profileLastName'>{user.lastName}</div>
+        <div className='profileEmail'>{user.email}</div>
+        <div className='profileBio'>{user.bio}</div>
       </div>;
+      
       JSXUser = 
-      <div>
-        <h2>{user.username}</h2>
-        <h3>{user.email}</h3>
+      <div className='profileHeader'>
         { this.state.editing ? JSXEditing : JSXDisplay }
       </div>;
     }
 
     return (
-      <div>
-        <h1>PROFILE</h1>
+      <div className='Profile'>
         { user ? JSXUser : <UserForm onComplete={this.handleCreate}/> }
       </div>
     );

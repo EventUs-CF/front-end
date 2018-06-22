@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import Modal from '../modal/index';
 import * as eventActions from './../../actions/event';
 import EventForm from './../event-form/event-form';
 import User from '../user/user';
@@ -8,19 +9,36 @@ import EventFeed from './../event-feed/event-feed';
 import './landing.scss';
 
 class Landing extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      create: false,
+    };
+  }
   componentDidMount() {
     this.props.loadEvents();
   }
   render() {
+    const hideModal = () => {
+      this.setState({ create: false }); 
+    };
+    const showModal = () => {
+      this.setState({ create: true }); 
+    };
+
     return (
       <div className='landing'>
-        <aside className='category-sort'>placeholder</aside>
+        <aside className='category-sort'></aside>
         { this.props.user ?
         <div className='main-window'>
-          <EventForm
-            onComplete={this.props.createEvent}
-          />
-          <EventFeed events={this.props.event}/>
+          <div className='createEvent' onClick={showModal}> CREATE NEW EVENT
+          <Modal className='modal' show={this.state.create} hide={hideModal}>
+            <EventForm
+              onComplete={this.props.createEvent}
+              />
+          </Modal>
+          </div>
+            <EventFeed events={this.props.event}/> 
         </div> :
           <User/>
         }

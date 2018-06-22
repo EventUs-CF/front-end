@@ -1,26 +1,53 @@
 article {
   width: 75%;
+  position:relative;
+  
+}
+.cancelButton {
+  float:right;
 }
 
 .user-form {
-  background-color: lightgray;
+  
+  background-color: whitesmoke;
   display: table;
   border-style: solid;
   border-color: #4e6977;
   border-width: .1em;
-  margin: 5em;
+  margin-left: 5%;
   width: 100%;
   padding: .3em;
 
+  .newAvatar {
+    margin-left:40%;
+    text-align: center;
+    border-style: groove;
+    border-radius: 5px;
+    padding: 2%;
+    text-align: center;
+  }
+  .avatar {
+    position: absolute;
+    left: 40%;
+    top: 10%;
+  }
+  .info {
+    all: unset;
+    margin-bottom: 3%;
+    margin-right:5%;
+    text-align: center;
+  }
+  
   div {
     display: table-row;
     width: 100%;
   }
   label {
     display: table-cell;
-    width: 25%;
+    width: 15%;
     padding: .1em;
     margin: .1em;
+    text-align: center;
   }
 
   input {
@@ -28,18 +55,37 @@ article {
     width: 90%;
     padding: .1em;
     margin: .1em;
+    margin-top:5%;
+    border-radius: 5px;
   }
 
   textarea {
-    display: table-cell;
+    // display: table-cell;
     width: 90%;
-    margin: .3em;
+    // margin: .3em;
+    margin-top:5%;
+    margin-bottom:1%;
+    height: 150px;
+    border-radius: 5px;
+
   }
 
-  button {
-    display: table-cell;
-    float: end;
-    padding: .1em;
-    margin: .1em;
+  // button {
+  //   display: table-cell;
+  //   float: end;
+  //   padding: .1em;
+  //   margin: .1em;
+  // }
+  .updateButton {
+    margin-left:5%;
+    float:left;
+    text-align:center;
+    width:80%;
+    height: 30px;
+    padding-bottom: 1%;
+    padding-top:0.5%;
+  }
+  .bio {
+    padding-top: 0px;
   }
 }

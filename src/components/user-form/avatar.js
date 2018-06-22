@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './avatar.scss';
 import avatar01 from '../../assets/avatars/avatar-01.png';
 import avatar02 from '../../assets/avatars/avatar-02.png';
 import avatar03 from '../../assets/avatars/avatar-03.png';
@@ -25,12 +26,12 @@ export default class Avatar extends React.Component {
       <div className='avatar'>
         <p>Click on an image to select your avatar!</p>
         <ul className='avatar-list'>
-          <li><img src={avatar01} onClick={this.handleClick}/></li>
-          <li><img src={avatar02} onClick={this.handleClick}/></li>
-          <li><img src={avatar03} onClick={this.handleClick}/></li>
-          <li><img src={avatar04} onClick={this.handleClick}/></li>
-          <li><img src={avatar05} onClick={this.handleClick}/></li>
-          <li><img src={avatar06} onClick={this.handleClick}/></li>
+          <li className='av1'><img src={avatar01} onClick={this.handleClick}/></li>
+          <li className='av1'><img src={avatar02} onClick={this.handleClick}/></li>
+          <li className='av1'><img src={avatar03} onClick={this.handleClick}/></li>
+          <li className='av1'><img src={avatar04} onClick={this.handleClick}/></li>
+          <li className='av1'><img src={avatar05} onClick={this.handleClick}/></li>
+          <li className='av1'><img src={avatar06} onClick={this.handleClick}/></li>
         </ul>
       </div>
     );

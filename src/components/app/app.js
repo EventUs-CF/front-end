@@ -10,7 +10,7 @@ import Landing from '../landing/landing';
 import EventForm from '../event-form/event-form';
 import * as userActions from '../../actions/user';
 import User from '../user/user';
-import Footer from '../footer/footer';
+// import Footer from '../footer/footer';
 import './app.scss';
 
 class App extends React.Component {
@@ -36,7 +36,7 @@ class App extends React.Component {
           <Route exact path='/event' component={EventForm}/>
         </div>
         </BrowserRouter>
-        <Footer/>
+        {/* <Footer/> */}
       </div>
     );
   }
