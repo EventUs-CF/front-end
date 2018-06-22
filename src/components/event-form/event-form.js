@@ -40,8 +40,8 @@ export default class EventForm extends React.Component {
     this.setState(emptyState);
   }
 
-  handleDate(date) {
-    this.setState(date);
+  handleDate(newDate) {
+    this.setState({ date: newDate });
   }
 
   // popMap() {
