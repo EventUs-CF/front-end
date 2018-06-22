@@ -28,7 +28,7 @@ If you would like to use this application please clone both the Front-end and Ba
     GOOGLE_API_KEY:<GOOGLE_API_KEY_HERE>
 
 ### In Your Back-end .env File:
-    NODE_ENV=<EVIRONMENT>
+    NODE_ENV=<ENVIRONMENT>
     PORT=<PORT_NUMBER_SERVER>
     DEBUG=true
     CORS_ORIGINS=http://localhost:<PORT_NUMBER_CLIENT> 
