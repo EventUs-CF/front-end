@@ -1,6 +1,6 @@
 ## EventUs Front End
 
-![eventUs](src/assets/eventUs.jpg)
+![eventUs](src/assets/eventUs1.jpg)
 
 ![Coverage](https://img.shields.io/badge/coverage-87%25-brightgreen.svg?longCache=true&style=plastic)
 ![Node](https://img.shields.io/badge/node-v8.9.4-blue.svg?longCache=true&style=plastic)
