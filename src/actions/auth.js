@@ -23,10 +23,13 @@ export const logout = () => {
 // && removeEventsAction() && removeTokenAction()
 
 export const signupRequest = user => (store) => {
+  const result = {};
   return superagent.post(`${API_URL}/${routes.SIGNUP_ROUTE}`)
     .send(user)
     .withCredentials()
     .then((response) => {
+      result.token = response.body.token;
+      localStorage.setItem('EventUsCookie', result.token);
       return store.dispatch(setTokenAction(response.body.token));
     });
 };
@@ -38,6 +41,7 @@ export const loginRequest = user => (store) => {
     .withCredentials()
     .then((response) => {
       result.token = response.body.token;
+      localStorage.setItem('EventUsCookie', result.token);
       return store.dispatch(setTokenAction(response.body.token));
     })
     .then(() => {

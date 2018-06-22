@@ -32,7 +32,7 @@ class Landing extends React.Component {
         { this.props.user ?
         <div className='main-window'>
           <div className='createEvent' onClick={showModal}> CREATE NEW EVENT
-          <Modal className='modal' show={this.state.create} hide={hideModal}>
+          <Modal className='modal' show={this.state.create} hide={hideModal} type='eventForm'>
             <EventForm
               onComplete={this.props.createEvent}
               />
