@@ -7,16 +7,16 @@ import * as eventActions from '../../actions/event';
 class EventFeed extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = this.props;
   }
   componentDidMount() {
     window.addEventListener('scroll', this.onScroll, false);
-    this.props.loadEvents()
-      .then(() => {
-        this.setState({
-          events: this.props.event,
-        });
-      });
+    // this.props.loadEvents()
+    //   .then(() => {
+    //     this.setState({
+    //       events: this.props.event,
+    //     });
+    //   });
   }
 
   componentWillUnmount() {
@@ -48,11 +48,11 @@ class EventFeed extends React.Component {
         <div>
           <p><b>IN PROPS</b></p>
           {
-            // this.props.events.map((item) => {
-            //   return <div className="eventfeed-row" key={item._id}>
-            //     <EventPost event={item}/>
-            //   </div>;
-            // })
+            this.props.events.map((item) => {
+              return <div className="eventfeed-row" key={item._id}>
+                <EventPost event={item}/>
+              </div>;
+            })
           }
         </div> : 
         <div>
