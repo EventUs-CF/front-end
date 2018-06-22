@@ -5,6 +5,7 @@ import autoBind from '../../utils/auto-bind';
 import * as userActions from '../../actions/user';
 import * as routes from '../../routes';
 import UserForm from '../user-form/user-form';
+import defaultAvatar from '../../assets/avatars/avatar-01.png';
 import './user.scss';
 
 class User extends React.Component {
@@ -56,7 +57,9 @@ class User extends React.Component {
         <div className='banner'></div>
         <h3 className='profileUserName'>{user.username}</h3>
         <a className='editLink' onClick={() => this.setState({ editing: true })}> Edit Profile </a>
-        <img className='profileImage'src={user.avatar} />
+        {
+          user.avatar ? <img className='profileImage' src={user.avatar} /> : <img className='profileImage' src={defaultAvatar} />
+        }
         <div className='profileFirstName'>{user.firstName}</div>
         <div className='profileLastName'>{user.lastName}</div>
         <div className='profileEmail'>{user.email}</div>
