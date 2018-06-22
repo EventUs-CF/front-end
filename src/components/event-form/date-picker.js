@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import DatePicker from 'react-datepicker';
-// import moment from 'moment';
+import moment from 'moment';
 
 import 'react-datepicker/dist/react-datepicker.css';
 
@@ -9,8 +9,7 @@ export default class EventDate extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      // startDate: moment(),
-      startDate: null,
+      startDate: moment(),
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
