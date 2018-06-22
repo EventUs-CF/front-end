@@ -11,11 +11,11 @@
     padding-right: 2em;
   }
   
-  div {
-    border-color: #1f41ff;
-    border-style: dashed;
-    display: table-row;
-  }
+  // div {
+  //   border-color: #1f41ff;
+  //   border-style: dashed;
+  //   display: table-row;
+  // }
 
   input {
     border-color: #1dff4e;
@@ -26,12 +26,6 @@
   }
 
   textarea {
-    display: table-row;
-    width: 80%;
-    padding-left: 2em;
-  }
-
-  .EventDate {
     display: table-row;
     width: 80%;
     padding-left: 2em;

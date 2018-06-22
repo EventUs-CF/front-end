@@ -40,7 +40,7 @@ class AuthLanding extends React.Component {
   // ------LIFECYCLE HOOKS-------
   render() {
     const signupJSX = 
-    <div className='aside'>
+    <div className='rootBox'>
       <div className='signUpAside'>
         <div className='message'>
           <h2>Connect with friends and share Hashes</h2>
@@ -59,10 +59,11 @@ class AuthLanding extends React.Component {
           <img src={discover}/>
           <p><b>Discover</b> new and completed Hashes with EventUs.</p>
         </div>
-      </div>
+      
       <div className='signupForm'>
         <h2> CREATE A NEW ACCOUNT </h2>
         <AuthForm onComplete={this.handleSignup}/>
+      </div>
       </div>
     </div>;
 

@@ -28,10 +28,10 @@ class Landing extends React.Component {
 
     return (
       <div className='landing'>
-        <aside className='category-sort'>placeholder</aside>
+        <aside className='category-sort'></aside>
         { this.props.user ?
         <div className='main-window'>
-          <div className='createEvent' onDoubleClick={showModal}> CREATE NEW EVENT
+          <div className='createEvent' onClick={showModal}> CREATE NEW EVENT
           <Modal className='modal' show={this.state.create} hide={hideModal}>
             <EventForm
               onComplete={this.props.createEvent}

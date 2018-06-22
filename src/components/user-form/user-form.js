@@ -1,5 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import Modal from '../modal/index';
+
 import autoBind from '../../utils/auto-bind';
 import Avatar from './avatar';
 import './user-form.scss';
@@ -35,11 +38,11 @@ class UserForm extends React.Component {
     e.preventDefault();
     if (this.state.showAvatars) {
       this.setState({
-        showAvatars: false,
+        showAvatars: true,
       });
     } else {
       this.setState({
-        showAvatars: true,
+        showAvatars: false,
       });
     }
   }
@@ -52,9 +55,37 @@ class UserForm extends React.Component {
   }
 
   render() {
+    const hideModal = () => {
+      this.setState({ showAvatars: false }); 
+    };
+    const showModal = () => {
+      this.setState({ showAvatars: true }); 
+    };
+
     return (
       <article>
+        {
+          this.state.showAvatars ? 
+        <Modal className='modal' show={this.state.showAvatars} hide={hideModal} type='avatar'>
+          <Avatar onAvatar={this.handleAvatarChange}/>
+        </Modal> : undefined
+        }
+      { this.props.userProfile ?
+          <div>
+            <label></label>
+            <div className='avatar'>
+              <img src={this.state.avatar}/>
+            </div>
+            <article className='info'>
+              <h3 className='username'>{this.props.userProfile.username}</h3>
+              <p className='email'>{this.props.userProfile.email}</p>
+              <div className='newAvatar' onClick={showModal}>Select New Avatar</div>
+            </article>
+          </div> : undefined
+      }
       <form className='user-form' onSubmit={this.handleSubmit}>
+        <label></label>
+        <button className='cancelButton' onClick={() => this.props.onClick}>X</button>
         <div>
         <label>First Name</label>
         <input
@@ -73,24 +104,19 @@ class UserForm extends React.Component {
           onChange={this.handleChange}
         />
         </div>
-        <label>Bio</label>
+        <label></label>
         <textarea
           type='text'
           name='bio'
+          placeholder='    tell us something about you!'
           value={this.state.bio}
           onChange={this.handleChange}
         />
         <div>
-        <label>Avatar</label>
-        <img src={this.state.avatar}/>
-        <button onClick={this.handleAvatarToggle}>Select</button>
-        </div>
-        <div>
         <label></label>
-        <button type='submit'>Update Profile</button>
+        <button type='submit' className='updateButton'>Update Profile</button>
         </div>
       </form>
-      {this.state.showAvatars ? <Avatar onAvatar={this.handleAvatarChange}/> : null}
       </article>
     );
   }
@@ -99,6 +125,12 @@ class UserForm extends React.Component {
 UserForm.propTypes = {
   onComplete: PropTypes.func,
   user: PropTypes.object,
+  userProfile: PropTypes.object,
+  onClick: PropTypes.func,
 };
 
-export default UserForm;
+const mapStateToProps = state => ({
+  userProfile: state.user,
+});
+
+export default connect(mapStateToProps, null)(UserForm);

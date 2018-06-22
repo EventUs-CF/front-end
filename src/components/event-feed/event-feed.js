@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import EventPost from '../event/event';
 import * as eventActions from '../../actions/event';
+import './event-feed.scss';
 
 class EventFeed extends React.Component {
   constructor(props) {

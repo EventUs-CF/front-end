@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './avatar.scss';
 import avatar01 from '../../assets/avatars/avatar-01.png';
 import avatar02 from '../../assets/avatars/avatar-02.png';
 import avatar03 from '../../assets/avatars/avatar-03.png';

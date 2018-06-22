@@ -5,6 +5,7 @@ import autoBind from '../../utils/auto-bind';
 import * as userActions from '../../actions/user';
 import * as routes from '../../routes';
 import UserForm from '../user-form/user-form';
+import './user.scss';
 
 class User extends React.Component {
   constructor(props) {
@@ -30,6 +31,10 @@ class User extends React.Component {
     this.setState({ editing: false });
   }
 
+  onClick() {
+    this.setState({ editing: false });
+  }
+
   // ----------------
   // LifeCycle Hooks
   // ----------------
@@ -42,20 +47,19 @@ class User extends React.Component {
 
     if (user) {
       JSXEditing = 
-      <div>
-        <UserForm user={user} onComplete={this.handleUpdate}/>
-        <button onClick={() => this.setState({ editing: false })}> Cancel </button>
+      <div className='userForm'>
+        <UserForm user={user} onComplete={this.handleUpdate} onClick={this.onClick}/>
       </div>;
       JSXDisplay = 
-      <div>
+      <div className='userInfo'>
         <p>{user.firstName}</p>
         <p>{user.lastName}</p>
-        <p>{user.bio}</p>
         <img src={user.avatar} />
+        <p>{user.bio}</p>
         <button onClick={() => this.setState({ editing: true })}> Edit </button>
       </div>;
       JSXUser = 
-      <div>
+      <div className='profileHeader'>
         <h2>{user.username}</h2>
         <h3>{user.email}</h3>
         { this.state.editing ? JSXEditing : JSXDisplay }
@@ -63,7 +67,7 @@ class User extends React.Component {
     }
 
     return (
-      <div>
+      <div className='User'>
         <h1>PROFILE</h1>
         { user ? JSXUser : <UserForm onComplete={this.handleCreate}/> }
       </div>

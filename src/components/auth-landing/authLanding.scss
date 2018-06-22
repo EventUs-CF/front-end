@@ -1,7 +1,8 @@
 .signUpAside {
-  margin-top: 5%;
-  margin-left:10%;
+  margin-top: 25%;
+  margin-left:90%;
   display: inline-block;
+  position:absolute;
   p {
     display: inline-block;
     padding-left:3%;
@@ -10,11 +11,11 @@
 .message {
   margin-bottom:10%;
 }
-.aside {
+.rootBox {
   width: 50%;
   padding: 0px;
   margin:0px;
-  position:absolute;
+  position:relative;
 }
 .motivation {
   width: 600px;
@@ -30,9 +31,10 @@
 }
 .signupForm {
   padding:0px;
-  margin-right: 10%;
-  margin-top:5%;
-  position: absolute;
+  // margin-right: 10%;
+  // margin-top:17%;  
+  position:absolute;
+
   bottom:20%;
   left:120%;
   input {

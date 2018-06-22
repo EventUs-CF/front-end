@@ -1,6 +1,7 @@
 .landing {
   display: grid;
-  grid-template-columns: 20% 80%;
+  grid-template-columns: 15% 80%;
+
 }
 
 .category-sort {
@@ -15,4 +16,14 @@
 
 .post-form {
   width: 100%;
+}
+.createEvent {
+  width: 85%;
+  height:50px;
+  background-color: rgb(255, 255, 255);
+  margin-top: 5%;
+  margin-bottom: 5%;
+  text-align: center;
+  padding-top: 2%;
+  font-size: 32px;
 }
