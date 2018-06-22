@@ -1,0 +1,18 @@
+.landing {
+  display: grid;
+  grid-template-columns: 20% 80%;
+}
+
+.category-sort {
+  display: grid;
+  grid-column: 1 / 2;
+}
+
+.main-window {
+  display: grid;
+  grid-column: 2 / 2;
+}
+
+.post-form {
+  width: 100%;
+}
