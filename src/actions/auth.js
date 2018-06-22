@@ -15,13 +15,8 @@ export const removeTokenAction = () => ({
   type: 'TOKEN_REMOVE',
 });
 
-export const removeEventsAction = () => ({
-  type: 'EVENT_REMOVE',
-});
-
 export const logout = () => {
-  // return deleteCookie(TOKEN_COOKIE_KEY);
-  removeEventsAction();
+  deleteCookie(TOKEN_COOKIE_KEY);
   return removeTokenAction();
 };
 

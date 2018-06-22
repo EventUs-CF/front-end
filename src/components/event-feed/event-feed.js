@@ -11,12 +11,6 @@ class EventFeed extends React.Component {
   }
   componentDidMount() {
     window.addEventListener('scroll', this.onScroll, false);
-    // this.props.loadEvents()
-    //   .then(() => {
-    //     this.setState({
-    //       events: this.props.event,
-    //     });
-    //   });
   }
 
   componentWillUnmount() {
@@ -44,9 +38,7 @@ class EventFeed extends React.Component {
   render() {
     return ( 
       <div className='eventfeed'>
-      { !this.state.events ? 
         <div>
-          <p><b>IN PROPS</b></p>
           {
             this.props.events.map((item) => {
               return <div className="eventfeed-row" key={item._id}>
@@ -54,20 +46,7 @@ class EventFeed extends React.Component {
               </div>;
             })
           }
-        </div> : 
-        <div>
-          <p><b>IN STATE</b></p>
-          {
-            this.state && this.state.events && <div>{
-              this.state.events.map((item) => {
-                return <div className="eventfeed-row" key={item._id}>
-                  <EventPost event={item}/>
-                </div>;
-              })
-            }</div>
-          }
         </div>
-      }
       </div>
     );
   }
