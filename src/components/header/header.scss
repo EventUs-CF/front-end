@@ -11,6 +11,9 @@
     top:50%;
     left: 10%;
   }
+  h3 {
+    margin-right: 5px;
+  }
   .links {
     display: inline-block;
     margin: 0px;
@@ -47,5 +50,8 @@
   }
   img {
     margin-top: 3px;
+  }
+  a {
+    text-decoration: none;
   }
 }

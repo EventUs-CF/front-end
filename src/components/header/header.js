@@ -31,7 +31,7 @@ class Header extends React.Component {
         {
           this.props.loggedIn ? 
           <div className='headerLoggedIn'>
-            <img src='avatar'/>
+            <img src={this.props.user ? this.props.user.avatar : null}/>
             <h3><a href={routes.USER_ROUTE}> {
                 this.props.user ?
               this.props.user.username : undefined
