@@ -47,28 +47,30 @@ class User extends React.Component {
 
     if (user) {
       JSXEditing = 
-      <div className='userForm'>
-        <UserForm user={user} onComplete={this.handleUpdate} onClick={this.onClick}/>
-      </div>;
+        <div className='userForm'>
+          <UserForm user={user} onComplete={this.handleUpdate} onClick={this.onClick}/>
+        </div>;
+      
       JSXDisplay = 
       <div className='userInfo'>
-        <p>{user.firstName}</p>
-        <p>{user.lastName}</p>
+        <div className='banner'></div>
+        <h3 className='profileUserName'>{user.username}</h3>
+        <a onClick={() => this.setState({ editing: true })}> Edit Profile </a>
         <img src={user.avatar} />
-        <p>{user.bio}</p>
-        <button onClick={() => this.setState({ editing: true })}> Edit </button>
+        <div className='profileFirstName'>{user.firstName}</div>
+        <div className='profileLastName'>{user.lastName}</div>
+        <div className='profileEmail'>{user.email}</div>
+        <div className='profileBio'>{user.bio}</div>
       </div>;
+      
       JSXUser = 
       <div className='profileHeader'>
-        <h2>{user.username}</h2>
-        <h3>{user.email}</h3>
         { this.state.editing ? JSXEditing : JSXDisplay }
       </div>;
     }
 
     return (
-      <div className='User'>
-        <h1>PROFILE</h1>
+      <div className='Profile'>
         { user ? JSXUser : <UserForm onComplete={this.handleCreate}/> }
       </div>
     );

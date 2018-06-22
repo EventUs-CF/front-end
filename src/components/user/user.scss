@@ -1,3 +1,51 @@
-.profileHeader {
-  // text-align: 
+.Profile{
+  all: unset;
+  position:absolute;
+  display: block;
+  border-style: groove;
+  width:490px;
+  margin-left:25%;
+  text-align: center;
+  margin-top: 5%;
+  height: 450px;
+  .banner{
+    width: 100%;
+    height: 35%;
+    background-color: lightcoral;
+    position: absolute;
+    z-index: -1;
+  }
+  img {
+    display: block;
+    position:relative;
+    height: 150px;
+    width:150px;
+    text-align: center;
+    left:36%;
+    top:25%;
+  }
+  .profileUserName {
+    font-size: 35px;
+    margin:0px;
+  }
+  .profileFirstName {
+    font-size: 28px;
+    position: absolute;
+    left: 30%;
+  }
+  .profileLastName {
+    font-size: 28px;
+    position: absolute;
+    left: 50%;
+  }
+  .profileEmail {
+    position: absolute;
+    left:33%;
+    top:55%;
+  }
+  .ProfileBio {
+    position: absolute;
+    top: 100%;
+  }
+
 }
