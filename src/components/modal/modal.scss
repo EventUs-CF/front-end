@@ -33,3 +33,14 @@
 button {
   float: right;
 }
+.avatar {
+  .modal-main {
+    position: fixed;
+    background: white;
+    top: 50%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+    width:50%;
+    // height: 30%;
+  }
+}
