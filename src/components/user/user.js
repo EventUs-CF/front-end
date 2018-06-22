@@ -55,7 +55,7 @@ class User extends React.Component {
       <div className='userInfo'>
         <div className='banner'></div>
         <h3 className='profileUserName'>{user.username}</h3>
-        <a onClick={() => this.setState({ editing: true })}> Edit Profile </a>
+        <a className='editLink' onClick={() => this.setState({ editing: true })}> Edit Profile </a>
         <img src={user.avatar} />
         <div className='profileFirstName'>{user.firstName}</div>
         <div className='profileLastName'>{user.lastName}</div>
