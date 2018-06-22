@@ -70,22 +70,26 @@ class UserForm extends React.Component {
           <Avatar onAvatar={this.handleAvatarChange}/>
         </Modal> : undefined
         }
-      { this.props.userProfile ?
+      
+      <form className='user-form' onSubmit={this.handleSubmit}>
+        <label></label>
+        <button className='cancelButton' onClick={() => this.props.onClick}>X</button>
+        <label></label>
+        { this.props.userProfile ?
           <div>
             <label></label>
-            <div className='avatar'>
+            {/* <div className='avatar'>
               <img src={this.state.avatar}/>
-            </div>
+            </div> */}
             <article className='info'>
               <h3 className='username'>{this.props.userProfile.username}</h3>
               <p className='email'>{this.props.userProfile.email}</p>
               <div className='newAvatar' onClick={showModal}>Select New Avatar</div>
             </article>
-          </div> : undefined
-      }
-      <form className='user-form' onSubmit={this.handleSubmit}>
-        <label></label>
-        <button className='cancelButton' onClick={() => this.props.onClick}>X</button>
+          </div> 
+          // undefined
+          : undefined
+        }
         <div>
         <label>First Name</label>
         <input

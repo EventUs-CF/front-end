@@ -26,12 +26,12 @@ export default class Avatar extends React.Component {
       <div className='avatar'>
         <p>Click on an image to select your avatar!</p>
         <ul className='avatar-list'>
-          <li><img src={avatar01} onClick={this.handleClick}/></li>
-          <li><img src={avatar02} onClick={this.handleClick}/></li>
-          <li><img src={avatar03} onClick={this.handleClick}/></li>
-          <li><img src={avatar04} onClick={this.handleClick}/></li>
-          <li><img src={avatar05} onClick={this.handleClick}/></li>
-          <li><img src={avatar06} onClick={this.handleClick}/></li>
+          <li className='av1'><img src={avatar01} onClick={this.handleClick}/></li>
+          <li className='av1'><img src={avatar02} onClick={this.handleClick}/></li>
+          <li className='av1'><img src={avatar03} onClick={this.handleClick}/></li>
+          <li className='av1'><img src={avatar04} onClick={this.handleClick}/></li>
+          <li className='av1'><img src={avatar05} onClick={this.handleClick}/></li>
+          <li className='av1'><img src={avatar06} onClick={this.handleClick}/></li>
         </ul>
       </div>
     );
