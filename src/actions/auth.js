@@ -20,12 +20,14 @@ export const logout = () => {
   return removeTokenAction();
 };
 
+// && removeEventsAction() && removeTokenAction()
+
 export const signupRequest = user => (store) => {
   return superagent.post(`${API_URL}/${routes.SIGNUP_ROUTE}`)
     .send(user)
     .withCredentials()
     .then((response) => {
-      return store.dispatch(setTokenAction(response.text));
+      return store.dispatch(setTokenAction(response.body.token));
     });
 };
 
@@ -35,19 +37,13 @@ export const loginRequest = user => (store) => {
     .auth(user.username, user.password)
     .withCredentials()
     .then((response) => {
-      result.token = response.text;
-      return store.dispatch(setTokenAction(response.text));
-    })
-    .then(() => {
-      return superagent.get(`${API_URL}/${routes.EVENT_ROUTE}`);
-    })
-    .then((response) => {
-      return store.dispatch(eventCreate(response.body));
+      result.token = response.body.token;
+      return store.dispatch(setTokenAction(response.body.token));
     })
     .then(() => {
       return superagent.get(`${API_URL}/${routes.USER_ROUTE}`)
         .set('Content-Type', 'application/json')
-        .set('Authorization', `Bearer ${result.token.split('"')[3]}`);
+        .set('Authorization', `Bearer ${result.token}`);
     })
     .then((userProfile) => {
       result.user = userProfile.body;

@@ -1,13 +1,13 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import EventPost from '../event/event';
+import * as eventActions from '../../actions/event';
 
-export default class EventFeed extends React.Component {
+class EventFeed extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      events: this.props.events,
-    };
+    this.state = this.props;
   }
   componentDidMount() {
     window.addEventListener('scroll', this.onScroll, false);
@@ -38,7 +38,6 @@ export default class EventFeed extends React.Component {
   render() {
     return ( 
       <div className='eventfeed'>
-      { !this.state.events ? 
         <div>
           {
             this.props.events.map((item) => {
@@ -47,17 +46,7 @@ export default class EventFeed extends React.Component {
               </div>;
             })
           }
-        </div> : 
-        <div>
-          {
-            this.state.events.map((item) => {
-              return <div className="eventfeed-row" key={item._id}>
-                <EventPost event={item}/>
-              </div>;
-            })
-          }
         </div>
-      }
       </div>
     );
   }
@@ -66,11 +55,16 @@ export default class EventFeed extends React.Component {
 EventFeed.propTypes = {
   eventList: PropTypes.array,
   onPaginatedSearch: PropTypes.func,
+  loadEvents: PropTypes.func,
   events: PropTypes.array,
 };
 
-// const mapStateTopProps = state => ({
-//   event: state.event,
-// });
+const mapStateTopProps = state => ({
+  event: state.event,
+});
 
-// export default connect(mapStateTopProps, null)(EventFeed);
+const mapDispatchToProps = dispatch => ({
+  loadEvents: () => dispatch(eventActions.fetchRequest()),
+});
+
+export default connect(mapStateTopProps, mapDispatchToProps)(EventFeed);
