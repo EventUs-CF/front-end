@@ -44,15 +44,15 @@ export default class EventForm extends React.Component {
     this.setState(date);
   }
 
-  popMap() {
-    flag.fire = true;
-    flag.address = this.state;
-    return superagent.get(`http://maps.googleapis.com/maps/api/geocode/json?address=${flag.address}`)
-      .then((response) => {
-        flag.address.long = response.results.geometry.location.lng;
-        flag.address.lat = response.results.geometry.location.lat;
-      });
-  }
+  // popMap() {
+  //   flag.fire = true;
+  //   flag.address = this.state;
+  //   return superagent.get(`http://maps.googleapis.com/maps/api/geocode/json?address=${flag.address}`)
+  //     .then((response) => {
+  //       flag.address.long = response.results.geometry.location.lng;
+  //       flag.address.lat = response.results.geometry.location.lat;
+  //     });
+  // }
 
   render() {
     return (
@@ -70,7 +70,6 @@ export default class EventForm extends React.Component {
               placeholder="event title"
               value={this.state.title}
               onChange={this.handleChange}
-              
             />
           </div>
           <div>

@@ -1,16 +1,22 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import EventPost from '../event/event';
+import * as eventActions from '../../actions/event';
 
-export default class EventFeed extends React.Component {
+class EventFeed extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      events: this.props.events,
-    };
+    this.state = {};
   }
   componentDidMount() {
     window.addEventListener('scroll', this.onScroll, false);
+    this.props.loadEvents()
+      .then(() => {
+        this.setState({
+          events: this.props.event,
+        });
+      });
   }
 
   componentWillUnmount() {
@@ -40,21 +46,25 @@ export default class EventFeed extends React.Component {
       <div className='eventfeed'>
       { !this.state.events ? 
         <div>
+          <p><b>IN PROPS</b></p>
           {
-            this.props.events.map((item) => {
-              return <div className="eventfeed-row" key={item._id}>
-                <EventPost event={item}/>
-              </div>;
-            })
+            // this.props.events.map((item) => {
+            //   return <div className="eventfeed-row" key={item._id}>
+            //     <EventPost event={item}/>
+            //   </div>;
+            // })
           }
         </div> : 
         <div>
+          <p><b>IN STATE</b></p>
           {
-            this.state.events.map((item) => {
-              return <div className="eventfeed-row" key={item._id}>
-                <EventPost event={item}/>
-              </div>;
-            })
+            this.state && this.state.events && <div>{
+              this.state.events.map((item) => {
+                return <div className="eventfeed-row" key={item._id}>
+                  <EventPost event={item}/>
+                </div>;
+              })
+            }</div>
           }
         </div>
       }
@@ -66,11 +76,16 @@ export default class EventFeed extends React.Component {
 EventFeed.propTypes = {
   eventList: PropTypes.array,
   onPaginatedSearch: PropTypes.func,
+  loadEvents: PropTypes.func,
   events: PropTypes.array,
 };
 
-// const mapStateTopProps = state => ({
-//   event: state.event,
-// });
+const mapStateTopProps = state => ({
+  event: state.event,
+});
 
-// export default connect(mapStateTopProps, null)(EventFeed);
+const mapDispatchToProps = dispatch => ({
+  loadEvents: () => dispatch(eventActions.fetchRequest()),
+});
+
+export default connect(mapStateTopProps, mapDispatchToProps)(EventFeed);
