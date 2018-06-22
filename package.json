@@ -11,7 +11,7 @@
     "start": "node index.js",
     "webpack": "webpack --config webpack.prod.js",
     "heroku-postbuild": "webpack --config webpack.prod.js",
-    "test": "eslint . && jest --verbose --coverage --forceExit --runInBand",
+    "test": "jest --verbose --coverage --forceExit --runInBand",
     "simpletest": "jest --verbose --coverage --forceExit --runInBand"
   },
   "jest": {
