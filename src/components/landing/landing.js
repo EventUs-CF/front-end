@@ -5,6 +5,7 @@ import * as eventActions from './../../actions/event';
 import EventForm from './../event-form/event-form';
 import User from '../user/user';
 import EventFeed from './../event-feed/event-feed';
+import './landing.scss';
 
 class Landing extends React.Component {
   componentDidMount() {
@@ -13,14 +14,13 @@ class Landing extends React.Component {
   render() {
     return (
       <div className='landing'>
-        <h1> Welcome </h1>
-        <h2> Thanks for logging in! </h2>
+        <aside className='category-sort'>placeholder</aside>
         { this.props.user ?
-        <div> 
+        <div className='main-window'>
           <EventForm
             onComplete={this.props.createEvent}
           />
-          <EventFeed events={this.props.event}/> 
+          <EventFeed events={this.props.event}/>
         </div> :
           <User/>
         }

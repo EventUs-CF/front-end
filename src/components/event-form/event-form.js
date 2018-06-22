@@ -61,9 +61,9 @@ export default class EventForm extends React.Component {
           className="event-form"
           onSubmit={this.handleSubmit}
         >
-          <h2>Create New Form</h2>
-          <div>
-            <aside>Title</aside>
+          <h2>Create New Event</h2>
+          <div className='title'>
+            <aside className='title-aside'>Title</aside>
             <input
               type="text"
               name="title"
@@ -72,12 +72,12 @@ export default class EventForm extends React.Component {
               onChange={this.handleChange}
             />
           </div>
-          <div>
-            <aside>Date</aside>
+          <div className='date'>
+            <aside className='date-aside'>Date</aside>
             <EventDate getDate={this.handleDate}/>
           </div>
           <div>
-            <aside>Time</aside>
+            <aside className='time-aside'>Time</aside>
             <input
               type="time"
               id="time"
@@ -86,8 +86,8 @@ export default class EventForm extends React.Component {
               onChange={this.handleChange}
             />
           </div>
-          <div>
-            <aside>Location</aside>
+          <div className='location'>
+            <aside className='location-aside'>Location</aside>
             <input
               type="text"
               name="location"
@@ -97,8 +97,8 @@ export default class EventForm extends React.Component {
               // onBlur={this.popMap}
             />
           </div>
-          <div>
-            <aside>Cost</aside>
+          <div className='cost'>
+            <aside className='cost-aside'>Cost</aside>
             <input
               type="text"
               id="currencyField"
@@ -108,8 +108,8 @@ export default class EventForm extends React.Component {
               onChange={this.handleChange}
             />
           </div>
-          <div>
-            <aside>Description</aside>
+          <div className='description'>
+            <aside className='description-aside'>Description</aside>
             <textarea
               name="description"
               placeholder="description"
