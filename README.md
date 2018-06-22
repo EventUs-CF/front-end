@@ -1,6 +1,6 @@
 ## EventUs Front End
 
-![eventUs](src/assets/eventUs.jpg)
+![eventUs](src/assets/eventUs1.jpg)
 
 ![Coverage](https://img.shields.io/badge/coverage-87%25-brightgreen.svg?longCache=true&style=plastic)
 ![Node](https://img.shields.io/badge/node-v8.9.4-blue.svg?longCache=true&style=plastic)
@@ -28,7 +28,7 @@ If you would like to use this application please clone both the Front-end and Ba
     GOOGLE_API_KEY:<GOOGLE_API_KEY_HERE>
 
 ### In Your Back-end .env File:
-    NODE_ENV=<EVIRONMENT>
+    NODE_ENV=<ENVIRONMENT>
     PORT=<PORT_NUMBER_SERVER>
     DEBUG=true
     CORS_ORIGINS=http://localhost:<PORT_NUMBER_CLIENT> 

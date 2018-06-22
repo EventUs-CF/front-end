@@ -7,7 +7,7 @@ import * as authActions from '../../actions/auth';
 import * as routes from '../../routes';
 import AuthForm from '../auth-form/auth-form';
 import './header.scss';
-import eventUs from '../../assets/eventUs.jpg';
+import eventUs from '../../assets/eventUs1.jpg';
 
 class Header extends React.Component {
   constructor(props) {

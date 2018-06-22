@@ -48,7 +48,6 @@ class UserForm extends React.Component {
   }
 
   handleAvatarChange(src) {
-    console.log('passed image src', src);
     this.setState({
       avatar: src,
     });
