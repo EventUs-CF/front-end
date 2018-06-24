@@ -1,7 +1,7 @@
 import superagent from 'superagent';
 import * as routes from '../routes';
 
-const eventCreate = event => ({
+export const eventCreate = event => ({
   type: 'EVENT_CREATE',
   payload: event,
 });
@@ -16,17 +16,17 @@ const eventDelete = event => ({
   payload: event,
 });
 
-const eventsFetch = events => ({
+export const eventsFetch = events => ({
   type: 'EVENTS_FETCH',
   payload: events,
 });
 
 const createRequest = event => (store) => {
-  const { token } = store.getState();
-
-  return superagent.post(`${API_URL}${routes.EVENT_ROUTE}`)
-    .set('Authorization', `Bearer ${token}`)
+  const { token, user } = store.getState();
+  event.createdBy = user._id;
+  return superagent.post(`${API_URL}/${routes.EVENT_ROUTE}`)
     .set('Content-Type', 'application/json')
+    .set('Authorization', `Bearer ${token}`)
     .send(event)
     .then((response) => {
       return store.dispatch(eventCreate(response.body));
@@ -36,7 +36,7 @@ const createRequest = event => (store) => {
 const updateRequest = event => (store) => {
   const { token } = store.getState();
 
-  return superagent.put(`${API_URL}${routes.EVENT_ROUTE}/${event._id}`)
+  return superagent.put(`${API_URL}/${routes.EVENT_ROUTE}/${event._id}`)
     .set('Authorization', `Bearer ${token}`)
     .set('Content-Type', 'application/json')
     .send(event)
@@ -48,7 +48,7 @@ const updateRequest = event => (store) => {
 const deleteRequest = event => (store) => {
   const { token } = store.getState();
 
-  return superagent.delete(`${API_URL}${routes.EVENT_ROUTE}/${event._id}`)
+  return superagent.delete(`${API_URL}/${routes.EVENT_ROUTE}/${event._id}`)
     .set('Authorization', `Bearer ${token}`)
     .then((response) => {
       return store.dispatch(eventDelete(response.body));
@@ -57,11 +57,10 @@ const deleteRequest = event => (store) => {
 
 const fetchRequest = () => (store) => {
   const { token } = store.getState();
-
-  return superagent.get(`${API_URL}${routes.EVENT_ROUTE}`)
+  return superagent.get(`${API_URL}/${routes.EVENT_ROUTE}`)
     .set('Authorization', `Bearer ${token}`)
     .then((response) => {
-      return store.dispatch(eventsFetch(response.body));
+      return store.dispatch(eventCreate(response.body));
     });
 };
 

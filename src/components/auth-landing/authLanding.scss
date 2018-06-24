@@ -1,0 +1,53 @@
+.signUpAside {
+  margin-top: 25%;
+  margin-left:90%;
+  display: inline-block;
+  position:absolute;
+  p {
+    display: inline-block;
+    padding-left:3%;
+  }
+}
+.message {
+  margin-bottom:10%;
+}
+.rootBox {
+  width: 50%;
+  padding: 0px;
+  margin:0px;
+  position:relative;
+}
+.motivation {
+  width: 600px;
+  position: relative;
+  img {
+    padding-bottom: 3%;
+  }
+  p {
+    margin: 0px;
+    position: absolute;
+    top: 30%;
+  }
+}
+.signupForm {
+  padding:0px;
+  // margin-right: 10%;
+  // margin-top:17%;  
+  position:absolute;
+
+  bottom:20%;
+  left:120%;
+  input {
+    margin-top: 5%;
+    width: 300px;
+    height: 30px;
+  }
+  button {
+    margin-top: 8%;
+  }
+  h2 {
+    margin: 0px;
+    margin-bottom: 10%;
+    padding-top: 0px;
+  }
+}

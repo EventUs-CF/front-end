@@ -4,7 +4,6 @@ const deleteCookie = (key) => {
 
 const fetchCookie = (key) => {
   const cookies = document.cookie.split(';');
-
   for (const cookie of cookies) { // eslint-disable-line
     const [cookieKey, cookieValue] = cookie.split('=');
 
@@ -12,7 +11,7 @@ const fetchCookie = (key) => {
       return cookieValue;
     }
   }
-  return null;
+  return localStorage.getItem('EventUsCookie');
 };
 
 export { deleteCookie, fetchCookie };

@@ -247,6 +247,8 @@ fabric.properties
 # Sonarlint plugin
 .idea/sonarlint
 
+# build folder
+build/
 
 # End of https://www.gitignore.io/api/osx,node,windows,webstorm,visualstudiocode
 node,windows,webstorm,visualstudiocode

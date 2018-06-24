@@ -1,0 +1,70 @@
+.Profile{
+  all: unset;
+  position:absolute;
+  display: block;
+  border-style: groove;
+  width:490px;
+  margin-left:25%;
+  text-align: center;
+  margin-top: 5%;
+  height: 650px;
+
+  .banner{
+    width: 100%;
+    height: 55%;
+    background-color: lightcoral;
+    position: absolute;
+    z-index: -99;
+  }
+  .profileImage {
+    display: block;
+    position:absolute;
+    height: 150px;
+    width:150px;
+    text-align: center;
+    left:33%;
+    top:16%;
+    z-index: -1;
+  }
+  .profileUserName {
+    position: absolute;
+    font-size: 32px;
+    top: -3%;
+    left: 35%;
+  }
+  .profileFirstName {
+    font-size: 28px;
+    position: absolute;
+    top: 42%;
+    left: 33%;
+  }
+  .profileLastName {
+    font-size: 28px;
+    top: 42%;
+    position: absolute;
+    left: 50%;
+  }
+  .profileEmail {
+    position: absolute;
+    left:30%;
+    top:50%;
+    font-size: 22px;
+  }
+  .profileBio {
+    position: absolute;
+    top: 60%;
+    border-style: groove;
+    width: 87%;
+    height:35%;
+    left: 7%;
+    text-align: left;
+    background-color:white;
+  }
+  .editLink {
+    position: absolute;
+    font-size: 22px;
+    top: 8%;
+    left: 37%;
+  }
+
+}

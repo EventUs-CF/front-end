@@ -1,8 +1,9 @@
 import superagent from 'superagent';
 import * as routes from '../routes';
+import { setProfile } from './user';
 import { deleteCookie } from '../utils/cookie';
 
-const TOKEN_COOKIE_KEY = 'PPA-Token';
+const TOKEN_COOKIE_KEY = 'EventUs-Token';
 
 export const setTokenAction = token => ({
   type: 'TOKEN_SET',
@@ -19,21 +20,34 @@ export const logout = () => {
 };
 
 export const signupRequest = user => (store) => {
-  return superagent.post(`${API_URL}${routes.SIGNUP_ROUTE}`)
+  const result = {};
+  return superagent.post(`${API_URL}/${routes.SIGNUP_ROUTE}`)
     .send(user)
     .withCredentials()
     .then((response) => {
-      return store.dispatch(setTokenAction(response.text));
+      result.token = response.body.token;
+      localStorage.setItem('EventUsCookie', result.token);
+      return store.dispatch(setTokenAction(response.body.token));
     });
 };
 
 export const loginRequest = user => (store) => {
-  return superagent.get(`${API_URL}${routes.LOGIN_ROUTE}`)
+  const result = {};
+  return superagent.get(`${API_URL}/${routes.LOGIN_ROUTE}`)
     .auth(user.username, user.password)
     .withCredentials()
     .then((response) => {
-      // console.log(response);
-      // console.log(response.text);
-      return store.dispatch(setTokenAction(response.text));
+      result.token = response.body.token;
+      localStorage.setItem('EventUsCookie', result.token);
+      return store.dispatch(setTokenAction(response.body.token));
+    })
+    .then(() => {
+      return superagent.get(`${API_URL}/${routes.USER_ROUTE}`)
+        .set('Content-Type', 'application/json')
+        .set('Authorization', `Bearer ${result.token}`);
+    })
+    .then((userProfile) => {
+      result.user = userProfile.body;
+      return store.dispatch(setProfile(userProfile.body));
     });
 };

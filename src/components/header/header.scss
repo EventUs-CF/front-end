@@ -1,0 +1,57 @@
+.header {
+  height: 101px;
+
+  background-color: lightseagreen;
+  position: relative;
+
+  h1 {
+    display: inline-block;
+    margin: 0px;
+    position: absolute;
+    top:50%;
+    left: 10%;
+  }
+  h3 {
+    margin-right: 5px;
+  }
+  .links {
+    display: inline-block;
+    margin: 0px;
+  }
+  .headerLoginInput {
+    display: inline-block;
+  }
+  .headerLoggedIn {
+    float: right;
+    margin-right: 5%;
+    margin-top: 2%;
+    h3 {
+      display: inline-block;
+    }
+  }
+  li {
+    display: inline-block;
+    margin: 0px;
+  }
+  ul {
+    padding: 0px;
+  }
+  form {
+    float: right;
+    margin-right: 5%;
+    margin-top: 2%;
+  }
+  p {
+    padding: 0px;
+    margin: 0px;
+  }
+  input {
+    border-radius: 15px;
+  }
+  img {
+    margin-top: 2px;
+  }
+  a {
+    text-decoration: none;
+  }
+}

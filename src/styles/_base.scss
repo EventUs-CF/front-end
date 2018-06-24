@@ -1,0 +1,25 @@
+@import 'vars';
+
+@import url('https://fonts.googleapis.com/css?family=Merriweather|Roboto');
+
+body {
+  background-color: lightgrey;
+  font-family: sans-serif;
+  color: $font-color;
+}
+
+a {
+  color: $font-color;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.error {
+  color: $error;
+}
+
+li {
+  list-style-type: none;
+}
