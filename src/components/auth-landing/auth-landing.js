@@ -37,7 +37,7 @@ class AuthLanding extends React.Component {
       .catch(console.error);
   }
 
-  // ------LIFECYCLE HOOKS-------
+  // ------LIFE-CYCLE HOOKS-------
   render() {
     const signupJSX = 
     <div className='rootBox'>

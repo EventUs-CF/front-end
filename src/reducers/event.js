@@ -6,7 +6,6 @@ export default (state = [], action) => {
     case 'TOKEN_REMOVE': // eslint-disable-line
       return [];
     case 'EVENT_CREATE':
-      // validateEvent(payload);
       if (payload.length === 0) {
         return state;
       } else if (payload.length > 1) {

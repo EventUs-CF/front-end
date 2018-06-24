@@ -77,16 +77,12 @@ class UserForm extends React.Component {
         { this.props.userProfile ?
           <div>
             <label></label>
-            {/* <div className='avatar'>
-              <img src={this.state.avatar}/>
-            </div> */}
             <article className='info'>
               <h3 className='username'>{this.props.userProfile.username}</h3>
               <p className='email'>{this.props.userProfile.email}</p>
               <div className='newAvatar' onClick={showModal}>Select New Avatar</div>
             </article>
           </div> 
-          // undefined
           : undefined
         }
         <div>
@@ -111,7 +107,7 @@ class UserForm extends React.Component {
         <textarea
           type='text'
           name='bio'
-          placeholder='    tell us something about you!'
+          placeholder='tell us something about you!'
           value={this.state.bio}
           onChange={this.handleChange}
         />

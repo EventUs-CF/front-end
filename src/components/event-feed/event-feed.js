@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import EventPost from '../event/event';
 import * as eventActions from '../../actions/event';
-import './event-feed.scss';
 
 class EventFeed extends React.Component {
   constructor(props) {
@@ -22,17 +21,6 @@ class EventFeed extends React.Component {
     if ((window.innerHeight + window.scrollY) >= 
     (document.body.offsetHeight - 500) && this.props.events.length) {
       console.log('fired');
-      // New or different method here? 
-      // do we want pagination search? 
-      // should call the method to render/draw new items from the array 
-
-      // this is not a function in our program 
-      // this.props.onPaginatedSearch();
-
-
-      // Here we need ot make a call to state fro all events
-      // store result from above  [] => eventList []
-      // result [[{},{},{}]] @ [0] this.setState({ eventList = result[0] })
     }
   }
 

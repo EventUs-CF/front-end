@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import superagent from 'superagent';
 import EventDate from './date-picker';
 // import DatePicker from 'react-datepicker';
 // import moment from 'moment';
@@ -15,9 +14,6 @@ const emptyState = {
   location: '',
   cost: '',
   description: '',
-};
-const flag = {
-  fire: false,
 };
 
 export default class EventForm extends React.Component {
@@ -44,16 +40,6 @@ export default class EventForm extends React.Component {
   handleDate(newDate) {
     this.setState({ date: newDate });
   }
-
-  // popMap() {
-  //   flag.fire = true;
-  //   flag.address = this.state;
-  //   return superagent.get(`http://maps.googleapis.com/maps/api/geocode/json?address=${flag.address}`)
-  //     .then((response) => {
-  //       flag.address.long = response.results.geometry.location.lng;
-  //       flag.address.lat = response.results.geometry.location.lat;
-  //     });
-  // }
 
   render() {
     return (
@@ -128,5 +114,6 @@ export default class EventForm extends React.Component {
 
 EventForm.propTypes = {
   onComplete: PropTypes.func,
+  hide: PropTypes.func,
   event: PropTypes.object,
 };

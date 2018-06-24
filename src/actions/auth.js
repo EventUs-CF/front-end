@@ -1,7 +1,6 @@
 import superagent from 'superagent';
 import * as routes from '../routes';
 import { setProfile } from './user';
-import { eventCreate } from './event';
 import { deleteCookie } from '../utils/cookie';
 
 const TOKEN_COOKIE_KEY = 'EventUs-Token';
@@ -19,8 +18,6 @@ export const logout = () => {
   deleteCookie(TOKEN_COOKIE_KEY);
   return removeTokenAction();
 };
-
-// && removeEventsAction() && removeTokenAction()
 
 export const signupRequest = user => (store) => {
   const result = {};

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import GoogleMapReact from 'google-map-react';
 import superagent from 'superagent';
 import marker from '../../assets/map-marker.png';
@@ -12,12 +13,11 @@ const defaultProps = {
   },
   zoom: 16,
 };
+
 const lat = defaultProps.center.lat;
 const lng = defaultProps.center.lng;
 
-const GKEY = 'AIzaSyBFWPYRbgVhIdgeh3KYtDbgthf9Rlu6q8o';
-
-const Marker = (props) => {
+const Marker = () => {
   return <img src={marker}/>;
 };
 
@@ -29,16 +29,14 @@ class SimpleMap extends Component {
 
   componentDidMount() {
     return superagent.get(`  http://maps.googleapis.com/maps/api/geocode/json?address=${this.props.address}`)
-    // return superagent.get(`  http://maps.googleapis.com/maps/api/geocode/json?address=2901 3rd Ave. Suite 300 
-    // Seattle, WA 98121 `)
       .then((response) => {
         defaultProps.center.lat = response.body.results[0].geometry.location.lat;
         defaultProps.center.lng = response.body.results[0].geometry.location.lng;
       });
   } 
+
   render() {
     return (
-      // Important! Always set the container height explicitly
       <div style={{ height: '300px', width: '100%', padding: '0%' }}>
         <GoogleMapReact
           bootstrapURLKeys={{ key: 'AIzaSyBFWPYRbgVhIdgeh3KYtDbgthf9Rlu6q8o' }}
@@ -56,5 +54,12 @@ class SimpleMap extends Component {
   }
 }
 
- 
+AnyReactComponent.propTypes = {
+  text: PropTypes.string,
+};
+
+SimpleMap.propTypes = {
+  address: PropTypes.string,
+};
+
 export default SimpleMap;

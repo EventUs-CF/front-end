@@ -23,14 +23,3 @@ describe('Landing page testing', () => {
     expect((mountedHeader).find('header')).toBeTruthy();
   });
 });
-
-
-//   // Other groups testing stuff. Needs refactoring. 
-//   test('testing ProfileForm', () => {
-//     const middleware = [thunk, reporter, session];
-//     const mockStore = configureStore(middleware);
-//     const mountedProfileForm = mount(<Provider store={mockStore(testState)}><ProfileForm/>
-//       </Provider>);
-//     expect((mountedProfileForm).find('contactFirstName')).toBeTruthy();
-//   });
-// });

@@ -31,5 +31,6 @@ export default class Modal extends React.Component {
 Modal.propTypes = {
   show: PropTypes.bool,
   hide: PropTypes.func,
+  type: PropTypes.string,
   children: PropTypes.node,
 };
